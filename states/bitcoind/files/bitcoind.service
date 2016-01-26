@@ -1,0 +1,15 @@
+[Unit]
+Description=Bitcoin daemon service MAINNET
+After=network.target
+ 
+[Service]
+Type=simple
+User=bitcoind
+ExecStart=/usr/bin/bitcoind --txindex=1 -conf=/etc/bitcoin/bitcoind.conf
+
+
+ExecStartPre=/bin/bash /var/bitcoind/shaper.sh start
+PermissionsStartOnly=True
+
+[Install]
+WantedBy=multi-user.target

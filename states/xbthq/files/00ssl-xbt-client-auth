@@ -1,0 +1,8 @@
+Debug::Acquire::https "false";
+    Acquire::https::repo.xbthq.co.uk {
+      Verify-Peer "true";
+      Verify-Host "true";
+      SslCert "/etc/apt/xbt.crt";
+      SslKey  "/etc/apt/xbt.key";
+     };
+

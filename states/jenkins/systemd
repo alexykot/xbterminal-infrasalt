@@ -1,0 +1,12 @@
+[Unit]
+Description=Jenkins Daemon
+
+[Service]
+Type=simple
+ExecStart= /usr/bin/java -Djava.awt.headless=true -jar /usr/share/jenkins/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080 --ajp13Port=-1
+User=jenkins
+#EnvironmentFile=/etc/default/jenkins
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
