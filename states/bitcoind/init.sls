@@ -2,48 +2,41 @@
 
 include:
   - xbthq.repo
+  - bitcoind.user
+  - bitcoind.datadisk
+  - bitcoind.configure
 
-/etc/bitcoin/bitcoind.conf:
+extend:
+  directory-datadisk:
+    file:
+      - require:
+        - user: bitcoind-user
+
+blockchain-dir:
   file:
-    - managed
-    - source: salt://bitcoind/files/bitcoind.conf
-    - template: jinja
-    - context:
-      bd: {{ bd }}
+    - directory
+    - name: {{ bd.datadir }}
+    - user: bitcoind
+    - group: bitcoind
+    - require:
+      - mount: mount-datadisk
 
-/lib/systemd/system/bitcoind.service:
-  file:
-    - managed
-    - source: salt://bitcoind/files/bitcoind.service
-
-bitcoind-service:
-  cmd:
-    - wait
-    - name: systemctl daemon-reload
-    - watch:
-      - file: /lib/systemd/system/bitcoind.service
-
-/var/bitcoind/shaper.sh:
-  file:
-    - managed
-    - source: salt://bitcoind/files/shaper.sh
 
 bitcoind:
   service:
     - running
     - enable: True
+    - sig: '/usr/bin/bitcoind'
+    - init_delay: 1
     - watch:
       - pkg: bitcoind
-      - file: /etc/bitcoin/bitcoind.conf
+      - file: /etc/bitcoin/*
       - cmd: bitcoind-service
       - file: /var/bitcoind/shaper.sh
       - user: bitcoind
+      - file: blockchain-dir
   pkg:
     - installed
+    - refresh: True
     - require:
       - file: /etc/apt/sources.list.d/xbterminal-backend.list
-  user:
-    - present
-    - uid: 1001
-    - gid: 1001
-    - home: /var/bitcoind
