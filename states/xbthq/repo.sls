@@ -40,3 +40,13 @@ apt-key  add /etc/apt/xbt_dev_signing.key:
     - wait
     - watch:
       - file: /etc/apt/xbt_dev_signing.key
+
+update-index:
+  cmd:
+    - wait
+    - watch:
+      - file: /etc/apt/apt.conf.d/00ssl-xbt-client-auth
+      - file: /etc/apt/xbt.crt
+      - file: /etc/apt/xbt.key
+      - file: /etc/apt/xbt_dev_signing.key
+      - cmd: apt-key  add /etc/apt/xbt_dev_signing.key
