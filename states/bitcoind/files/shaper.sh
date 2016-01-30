@@ -55,7 +55,7 @@ tc qdisc del dev ${IF} root
 
 
 ret=0
-while [ $ret -eq 0 ]; do
+while [ ${ret} -eq 0 ]; do
 	iptables -t mangle -D OUTPUT 1
 	ret=$?
 done
