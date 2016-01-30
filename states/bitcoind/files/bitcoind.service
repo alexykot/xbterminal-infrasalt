@@ -1,11 +1,11 @@
 [Unit]
-Description=Bitcoin daemon service MAINNET
+Description=Bitcoin daemon service {{ bd.net }}
 After=network.target
  
 [Service]
 Type=simple
 User=bitcoind
-ExecStart=/usr/bin/bitcoind --txindex=1 -conf=/etc/bitcoin/bitcoind.conf
+ExecStart=/usr/bin/bitcoind -conf=/etc/bitcoin/bitcoind.conf
 
 
 ExecStartPre=/bin/bash /var/bitcoind/shaper.sh start
