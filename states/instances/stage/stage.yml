@@ -1,0 +1,14 @@
+aws:
+  ami: 'ami-e31a6594'
+  del_all_vols_on_destroy: False
+  ssh_username: 'admin'
+  sync_after_install: grains
+  roles:
+    bitcoind:
+      name: 'xbt-stage-bitcoin'
+      count: 1
+      size: t2.nano
+      volumes: [ { size: 10, device: /dev/sdh } ]
+      SubnetId: subnet-f3f7e596
+      SecurityGroupId: [ 'sg-8aeba5ee' ]
+      Subnet24: 172.90.100
