@@ -44,6 +44,7 @@ apt-key  add /etc/apt/xbt_dev_signing.key:
 update-index:
   cmd:
     - wait
+    - name: 'apt-get update -qq'
     - watch:
       - file: /etc/apt/apt.conf.d/00ssl-xbt-client-auth
       - file: /etc/apt/xbt.crt
