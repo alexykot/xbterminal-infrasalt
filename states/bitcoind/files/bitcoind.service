@@ -11,5 +11,7 @@ ExecStart=/usr/bin/bitcoind -conf=/etc/bitcoin/bitcoind.conf
 ExecStartPre=/bin/bash /var/bitcoind/shaper.sh start
 PermissionsStartOnly=True
 
+ExecStop=/usr/bin/bitcoin-cli --conf=/etc/bitcoin/bitcoind.conf stop
+
 [Install]
 WantedBy=multi-user.target
