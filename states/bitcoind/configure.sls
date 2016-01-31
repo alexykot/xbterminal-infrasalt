@@ -58,3 +58,8 @@ rpckey:
     - group: bitcoind
     - user: root
 
+minissdpd.service:
+  service:
+    - dead
+    - enable: False
+    - sig: '/usr/sbin/minissdpd'
