@@ -1,7 +1,7 @@
-{% set bd = pillar['bitcoind'] %}
+{% set db = pillar['database'] %}
 
-{% set blk = bd.datadisk.dev %}
-{% set dir = bd.datadisk.dir%}
+{% set blk = db.datadisk.dev %}
+{% set dir = db.datadisk.dir %}
 
 datadisk:
   blockdev:
@@ -27,10 +27,10 @@ directory-datadisk:
   file:
     - directory
     - name: {{ dir }}
-    - user: bitcoind
-    - group: bitcoind
-    - dir_mode:  750
-    - file_mode: 644
+    - user: postgres
+    - group: postgres
+    - dir_mode:  0700
+    - file_mode: 0600
     - recurse:
       - user
       - group

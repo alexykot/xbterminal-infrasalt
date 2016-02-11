@@ -16,4 +16,5 @@ core:
       - atop
       - strace
       - xfsprogs
+      - dstat
     - order: 1

@@ -1,0 +1,12 @@
+database:
+  datadisk:
+    dev: '/dev/xvdh'
+    dir: '/var/lib/postgresql/'
+  backup:
+    passhrase: 'secret'
+    aki: 'AKIAxyz'
+    sak: 'key'
+    dest: 's3://s3-eu-west-1.amazonaws.com/backup-xbt-app/database/postgresql/'
+    src: '/var/backups/xbt/postgres/'
+
+postgres:

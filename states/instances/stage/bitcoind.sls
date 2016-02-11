@@ -11,7 +11,7 @@
     - image: {{ cloud.aws.ami }}
     - del_all_vols_on_destroy:  {{ cloud.aws.del_all_vols_on_destroy }}
     - volumes: {{ bd.volumes }}
-    - tag: {'Env': 'stage', 'Role': 'bitcoind', 'Name': '{{ bd.name }}-{{ noma }}'}
+    - tag: {'Env': 'stage', 'Role': 'bitcoind', 'Name': '{{ bd.name }}-0{{ noma }}'}
     - sync_after_install: grains
     - start_action: state.highstate
     - network_interfaces:
