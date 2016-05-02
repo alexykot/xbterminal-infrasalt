@@ -6,6 +6,31 @@ base:
     - openssh.config
     - users
     - hostname
+  xbt-tasks-01:
+    - core
+    - maratsh
+    - openssh
+    - openssh.config
+    - users
+    - hostname
+    - xbtapp
+    - xbtapp.tasks
+  xbt-web-01:
+    - core
+    - maratsh
+    - openssh
+    - openssh.config
+    - users
+    - hostname
+    - xbtapp
+  xbt-api-01:
+    - core
+    - maratsh
+    - openssh
+    - openssh.config
+    - users
+    - hostname
+    - xbtapp
   xbt-monitoring-01:
     - core
     - maratsh
@@ -21,8 +46,8 @@ base:
     - openssh.config
     - users
     - hostname
-    - postgresql
-  xbt-bitcoin-01:
+    - database
+  xbt-bitcoincl-01:
     - core
     - maratsh
     - openssh
@@ -38,3 +63,4 @@ base:
     - users
     - hostname
     - bitcoind
+
