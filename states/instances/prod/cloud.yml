@@ -1,0 +1,44 @@
+env: prod
+aws:
+  ami: 'ami-e31a6594'
+  del_all_vols_on_destroy: False
+  ssh_username: 'admin'
+  sync_after_install: grains
+  roles:
+    bitcoind:
+      name: 'xbt-bitcoincl'
+      count: 1
+      size: t2.small
+      volumes: [ { size: 200, device: /dev/sdh } ]
+      SubnetId: subnet-4ba49a3c #xbt-bitcoin-c
+      SecurityGroupId: [ ' sg-5f93d23b' ] # xbt-bitcoin
+      Subnet24: 172.90.203.
+    postgresql:
+      name: 'xbt-postgresql'
+      count: 1
+      size: t2.micro
+      volumes: [ { size: 1, device: /dev/sdh } ]
+      SubnetId: subnet-95a19fe2 #xbt-database-c
+      SecurityGroupId: [ 'sg-72da8716' ] # xbt-database
+      Subnet24: 172.90.204.1
+    web:
+      name: 'xbt-web'
+      count: 1
+      size: t2.micro
+      SubnetId: subnet-87a19ff0 #xbt-app-c
+      SecurityGroupId: [ 'sg-7c9fc318' ] # sg-7c9fc318
+      Subnet24: 172.90.205.1
+    api:
+      name: 'xbt-api'
+      count: 1
+      size: t2.micro
+      SubnetId: subnet-87a19ff0 #xbt-app-c
+      SecurityGroupId: [ 'sg-7c9fc318' ] # sg-7c9fc318
+      Subnet24: 172.90.205.2
+    tasks:
+      name: 'xbt-tasks'
+      count: 1
+      size: t2.micro
+      SubnetId: subnet-87a19ff0 #xbt-app-c
+      SecurityGroupId: [ 'sg-7c9fc318' ] # sg-7c9fc318
+      Subnet24: 172.90.205.3
