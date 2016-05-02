@@ -18,10 +18,12 @@ nginx:
   file.managed:
     - source: salt://nginx/files/nginx.conf
     - template: jinja
+    - makedirs: True
 
 /etc/nginx/conf.d/default.conf:
   file.managed:
     - source: salt://nginx/files/default.conf
+    - makedirs: True
 
 /etc/security/limits.conf:
   file.append:
