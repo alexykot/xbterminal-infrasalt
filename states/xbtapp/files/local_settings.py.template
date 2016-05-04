@@ -33,5 +33,4 @@ PKI_CERTIFICATES = {{ config.PKI_CERTIFICATES }}
 CACHES = {{ config.CACHES }}
 RQ_QUEUES = {{ config.RQ_QUEUES }}
 
-
-
+BITCOIND_SERVERS = {{ config.BITCOIND_SERVERS }}
