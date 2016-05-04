@@ -12,7 +12,7 @@ include:
 
 xbterminal-website:
   pkg:
-    - installed
+    - latest
     - require_in:
       - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
       - file: /var/www/xbterminal.com/logs/
