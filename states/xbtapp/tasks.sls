@@ -1,4 +1,4 @@
-{% set app = pillar['xbt']['app'] %}
+{% from "xbtapp/map.jinja" import app with context %}
 
 #write config
 {% for task in app.tasks %}

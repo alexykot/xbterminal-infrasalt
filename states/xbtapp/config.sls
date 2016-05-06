@@ -1,5 +1,4 @@
-{% set app = pillar['xbt']['app'] %}
-
+{% from "xbtapp/map.jinja" import app with context %}
 
 /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py:
   file:

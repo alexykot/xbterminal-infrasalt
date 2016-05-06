@@ -1,0 +1,9 @@
+{% import_yaml "xbtapp/defaults.yaml" as default_settings %}
+
+{% set xbt = salt['pillar.get'](
+    'xbt',
+    default=default_settings.xbt,
+    merge=True)
+%}
+
+{% set app = xbt.app %}

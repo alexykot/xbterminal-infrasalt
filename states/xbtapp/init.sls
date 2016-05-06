@@ -1,4 +1,5 @@
-{% set app = pillar['xbt']['app'] %}
+{% from "xbtapp/map.jinja" import app with context %}
+
 
 include:
   - redis
@@ -12,7 +13,8 @@ include:
 
 xbterminal-website:
   pkg:
-    - latest
+    - installed
+    - version: '{{ salt['pillar.get']('version', app.version )}}'
     - require_in:
       - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
       - file: /var/www/xbterminal.com/logs/
