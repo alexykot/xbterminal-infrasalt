@@ -34,7 +34,7 @@ aws:
       SubnetId: subnet-87a19ff0 #xbt-app-c
       SecurityGroupId: [ 'sg-7c9fc318' ] # sg-7c9fc318
       Subnet24: 172.90.205.2
-      MuiltiAZ:
+      MultiAZ:
         - eu-west-1c:
           SubnetId: subnet-87a19ff0 #xbt-app-c
           Subnet24: 172.90.205.2

@@ -12,13 +12,13 @@ xbt_api_highstate:
     - require:
       - cloud: 'xbt*'
 
-{% for zone in i.MuiltiAZ %}
+{% for zone in i.MultiAZ %}
 {% for noma in range(1, zone.count +1 ) %}
 
 {% endfor %}
 {% endfor %}
 
-{% for zone in i.MuiltiAZ %}
+{% for zone in i.MultiAZ %}
 {% for noma in range(1, zone.count +1 ) %}
 
 
