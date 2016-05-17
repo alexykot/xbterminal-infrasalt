@@ -1,11 +1,11 @@
 {% import_yaml "instances/prod/cloud.yml" as cloud %}
 {% from "xbtapp/map.jinja" import app with context %}
 
-{% set i = cloud.aws.roles.tasks %}
+{% set i = cloud.aws.roles.web %}
 
-xbt_tasks_highstate:
+xbt_web_highstate:
   salt.state:
-    - tgt: 'roles:xbt-tasks'
+    - tgt: 'roles:xbt-web'
     - tgt_type: grain
     - highstate: True
     - saltenv: base
@@ -23,7 +23,7 @@ xbt_tasks_highstate:
     - ssh_username: {{ cloud.aws.ssh_username }}
     - image: {{ cloud.aws.ami }}
     - del_all_vols_on_destroy:  {{ cloud.aws.del_all_vols_on_destroy }}
-    - tag: {'Env': '{{ cloud.env  }}', 'Roles': 'xbt-tasks', 'Name': '{{ i.name }}-{{ zone.id }}0{{ noma }}'}
+    - tag: {'Env': '{{ cloud.env  }}', 'Roles': 'xbt-web', 'Name': '{{ i.name }}-{{ zone.id }}0{{ noma }}'}
     - sync_after_install: grains
     - network_interfaces:
       - DeviceIndex: 0
@@ -31,7 +31,7 @@ xbt_tasks_highstate:
         AssociatePublicIpAddress: True
         SubnetId: {{ zone.SubnetId }}
         SecurityGroupId: {{ i.SecurityGroupId }}
-    - minion: { 'grains': { 'roles': [ 'xbt-tasks' ] } }
+    - minion: { 'grains': { 'roles': [ 'xbt-web' ] } }
 
 {% endfor %}
 {% endfor %}
