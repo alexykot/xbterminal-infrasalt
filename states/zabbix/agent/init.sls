@@ -29,3 +29,4 @@ zabbix-agent:
       za:
         servers_passive: 'mon.i.xbthq.co.uk'
         server_active: 'mon.i.xbthq.co.uk'
+        metadata: '88e80d4c57e9307afdde3e56249cf1f2'
