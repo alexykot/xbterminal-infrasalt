@@ -26,14 +26,21 @@ aws:
       count: 1
       size: t2.micro
       SubnetId: subnet-87a19ff0 #xbt-app-c
-      SecurityGroupId: [ 'sg-7c9fc318' ] # sg-7c9fc318
-      Subnet24: 172.90.205.1
+      MultiAZ:
+        - eu-west-1b:
+          SubnetId: subnet-37f15653
+          Subnet24: 172.90.105.1
+          count: 1
+          id: 1b
+        - eu-west-1a:
+          SubnetId: subnet-f2938cab
+          Subnet24: 172.90.5.1
+          count: 1
+          id: 1a
     api:
       name: 'xbt-api'
       size: t2.micro
-      SubnetId: subnet-87a19ff0 #xbt-app-c
       SecurityGroupId: [ 'sg-7c9fc318' ] # sg-7c9fc318
-      Subnet24: 172.90.205.2
       MultiAZ:
         - eu-west-1c:
           SubnetId: subnet-87a19ff0 #xbt-app-c
@@ -49,6 +56,15 @@ aws:
       name: 'xbt-tasks'
       count: 1
       size: t2.micro
-      SubnetId: subnet-87a19ff0 #xbt-app-c
       SecurityGroupId: [ 'sg-7c9fc318' ] # sg-7c9fc318
-      Subnet24: 172.90.205.3
+      MultiAZ:
+        - eu-west-1c:
+          SubnetId: subnet-87a19ff0 #xbt-app-c
+          Subnet24: 172.90.205.3
+          count: 1
+          id: 1c
+        - eu-west-1b:
+          SubnetId: subnet-37f15653
+          Subnet24: 172.90.105.3
+          count: 1
+          id: 1b
