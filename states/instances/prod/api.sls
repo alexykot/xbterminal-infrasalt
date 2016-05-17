@@ -15,12 +15,6 @@ xbt_api_highstate:
 {% for zone in i.MultiAZ %}
 {% for noma in range(1, zone.count +1 ) %}
 
-{% endfor %}
-{% endfor %}
-
-{% for zone in i.MultiAZ %}
-{% for noma in range(1, zone.count +1 ) %}
-
 
 {{ i.name }}-{{ zone.id }}-0{{ noma }}:
   cloud.present:
