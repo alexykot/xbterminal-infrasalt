@@ -1,32 +1,37 @@
 {% import_yaml "instances/prod/cloud.yml" as cloud %}
+{% from "xbtapp/map.jinja" import app with context %}
+
 {% set i = cloud.aws.roles.api %}
 
-{% for noma in range(1, i.count +1 ) %}
+xbt_api_highstate:
+  salt.state:
+    - tgt: 'roles:xbt-api'
+    - tgt_type: grain
+    - highstate: True
+    - saltenv: base
+    - require:
+      - cloud: 'xbt*'
 
-{{ i.name }}-0{{ noma }}:
+{% for zone in i.MultiAZ %}
+{% for noma in range(1, zone.count +1 ) %}
+
+
+{{ i.name }}-{{ zone.id }}-0{{ noma }}:
   cloud.present:
     - cloud_provider: aws
     - size: {{ i.size }}
     - ssh_username: {{ cloud.aws.ssh_username }}
     - image: {{ cloud.aws.ami }}
     - del_all_vols_on_destroy:  {{ cloud.aws.del_all_vols_on_destroy }}
-    - tag: {'Env': '{{ cloud.env  }}', 'Roles': 'xbt-api', 'Name': '{{ i.name }}-0{{ noma }}'}
+    - tag: {'Env': '{{ cloud.env  }}', 'Roles': 'xbt-api', 'Name': '{{ i.name }}-{{ zone.id }}0{{ noma }}'}
     - sync_after_install: grains
-    - start_action: state.highstate
     - network_interfaces:
       - DeviceIndex: 0
-        PrivateIpAddress: {{ i.Subnet24 }}{{ noma }}
+        PrivateIpAddress: {{ zone.Subnet24 }}{{ noma }}
         AssociatePublicIpAddress: True
-        SubnetId: {{ i.SubnetId }}
+        SubnetId: {{ zone.SubnetId }}
         SecurityGroupId: {{ i.SecurityGroupId }}
     - minion: { 'grains': { 'roles': [ 'xbt-api' ] } }
 
-{{ i.name }}-0{{ noma }} - highstate:
-  salt.state:
-    - tgt: {{ i.name }}-0{{ noma }}
-    - highstate: True
-    - require:
-      - cloud: {{ i.name }}-0{{ noma }}
-
-
+{% endfor %}
 {% endfor %}

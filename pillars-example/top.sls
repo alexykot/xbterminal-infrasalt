@@ -1,4 +1,8 @@
 base:
+  'G@roles:xbt-api':
+    - xbtapp
+    - xbt.openssh
+    - xbt.users
   xbt-bitcoin-01:
     - xbt.openssh
     - xbt.users
@@ -12,11 +16,6 @@ base:
     - xbt.users
     - xbt.bitcoind
     - xbt.postgres
-  xbt-api-01:
-    - xbt.openssh
-    - xbt.users
-    - xbt.uwsgi
-    - xbt.app
   xbt-web-01:
     - xbt.openssh
     - xbt.users

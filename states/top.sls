@@ -6,6 +6,8 @@ base:
     - openssh.config
     - users
     - hostname
+  'G@roles:xbt-api':
+    - xbtapp    
   xbt-tasks-01:
     - core
     - maratsh
@@ -16,14 +18,6 @@ base:
     - xbtapp
     - xbtapp.tasks
   xbt-web-01:
-    - core
-    - maratsh
-    - openssh
-    - openssh.config
-    - users
-    - hostname
-    - xbtapp
-  xbt-api-01:
     - core
     - maratsh
     - openssh
@@ -63,4 +57,3 @@ base:
     - users
     - hostname
     - bitcoind
-

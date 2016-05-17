@@ -14,7 +14,7 @@ include:
 xbterminal-website:
   pkg:
     - installed
-    - version: '{{ salt['pillar.get']('version', app.version )}}'
+    - version: '{{ salt['pillar.get']('version', app.version )|default('>1') }}'
     - require_in:
       - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
       - file: /var/www/xbterminal.com/logs/
