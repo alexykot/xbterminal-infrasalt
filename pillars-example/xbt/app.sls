@@ -1,5 +1,6 @@
 xbt:
   app:
+    version: '>1'
     config:
       ALLOWED_HOSTS:
         - '*'
@@ -104,5 +105,3 @@ xbt:
            - User=xbt-app
          timer:
            - OnUnitInactiveSec=30m
-
-
