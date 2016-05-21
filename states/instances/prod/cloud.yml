@@ -5,6 +5,7 @@ aws:
   ssh_username: 'admin'
   sync_after_install: grains
   roles:
+
     bitcoind:
       name: 'xbt-bitcoincl'
       count: 1
@@ -13,6 +14,7 @@ aws:
       SubnetId: subnet-4ba49a3c #xbt-bitcoin-c
       SecurityGroupId: [ ' sg-5f93d23b' ] # xbt-bitcoin
       Subnet24: 172.90.203.
+
     postgresql:
       name: 'xbt-postgresql'
       count: 1
@@ -21,10 +23,25 @@ aws:
       SubnetId: subnet-95a19fe2 #xbt-database-c
       SecurityGroupId: [ 'sg-72da8716' ] # xbt-database
       Subnet24: 172.90.204.1
+
+    rds_postgresql:
+      name: 'xbt-rds-postgresql'
+      count: 1
+      size: db.t2.micro
+      volume: 5
+      SecurityGroupId: [ 'sg-72da8716' ] # xbt-database
+      MultiAZ:
+        SubnetDBID: xbt-postgresql
+        SubnetIDs:
+          - subnet-95a19fe2
+          - subnet-8bc421d3
+          - subnet-0d842069
+
     web:
       name: 'xbt-web'
       count: 1
       size: t2.micro
+      SecurityGroupId: [ 'sg-7c9fc318' ]
       SubnetId: subnet-87a19ff0 #xbt-app-c
       MultiAZ:
         - eu-west-1b:
@@ -37,10 +54,11 @@ aws:
           Subnet24: 172.90.5.1
           count: 1
           id: 1a
+
     api:
       name: 'xbt-api'
       size: t2.micro
-      SecurityGroupId: [ 'sg-7c9fc318' ] # sg-7c9fc318
+      SecurityGroupId: [ 'sg-7c9fc318' ]
       MultiAZ:
         - eu-west-1c:
           SubnetId: subnet-87a19ff0 #xbt-app-c
@@ -52,6 +70,7 @@ aws:
           Subnet24: 172.90.5.2
           count: 1
           id: 1a
+
     tasks:
       name: 'xbt-tasks'
       count: 1
@@ -63,8 +82,3 @@ aws:
           Subnet24: 172.90.205.3
           count: 1
           id: 1c
-        - eu-west-1b:
-          SubnetId: subnet-37f15653
-          Subnet24: 172.90.105.3
-          count: 1
-          id: 1b
