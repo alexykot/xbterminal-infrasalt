@@ -3,6 +3,14 @@ base:
     - xbtapp
     - xbt.openssh
     - xbt.users
+  'G@roles:xbt-web':
+    - xbtapp
+    - xbt.openssh
+    - xbt.users
+  'G@roles:xbt-tasks':
+    - xbtapp
+    - xbt.openssh
+    - xbt.users
   xbt-bitcoin-01:
     - xbt.openssh
     - xbt.users
@@ -16,18 +24,6 @@ base:
     - xbt.users
     - xbt.bitcoind
     - xbt.postgres
-  xbt-web-01:
-    - xbt.openssh
-    - xbt.users
-    - xbt.postgres
-    - xbt.uwsgi
-    - xbt.app
-  xbt-tasks-01:
-    - xbt.openssh
-    - xbt.users
-    - xbt.postgres
-    - xbt.uwsgi
-    - xbt.app
   xbt-stage-bitcoin-01:
     - xbt-stage.openssh
     - xbt-stage.users

@@ -7,24 +7,12 @@ base:
     - users
     - hostname
   'G@roles:xbt-api':
-    - xbtapp    
-  xbt-tasks-01:
-    - core
-    - maratsh
-    - openssh
-    - openssh.config
-    - users
-    - hostname
+    - xbtapp
+  'G@roles:xbt-web':
+    - xbtapp
+  'G@roles:xbt-tasks':
     - xbtapp
     - xbtapp.tasks
-  xbt-web-01:
-    - core
-    - maratsh
-    - openssh
-    - openssh.config
-    - users
-    - hostname
-    - xbtapp
   xbt-monitoring-01:
     - core
     - maratsh
