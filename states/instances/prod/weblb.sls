@@ -1,11 +1,10 @@
+{% import_yaml "instances/prod/cloud.yml" as cloud %}
+{% set i = cloud.aws.roles.web %}
+
 weblb:
   boto_elb.present:
-    - name: web.xbt.elb
-#    - profile: {{ pillar['apielb'] }}
-    - availability_zones:
-      - eu-west-1a
-      - eu-west-1c
-      - eu-west-1d
+    - name: 'www-xbt-elb'
+    - profile: boto-eu-west-1
     - listeners:
       - elb_port: 443
         instance_port: 8443
@@ -15,14 +14,24 @@ weblb:
       - elb_port: 80
         instance_port: 8080
         elb_protocol: HTTP
+    - subnets:
+    {% for az in i.MultiAZ %}
+      - {{ az.SubnetId }}
+    {% endfor %}
     - health_check:
-      target: 'HTTP:8443/en/'
+        target: 'HTTP:8443/en/'
     - attributes:
-      cross_zone_load_balancing:
-        enabled: true
-    - security_groups:
-      - sg-7c9fc318
-    - cnames:
-      - name: web.xbterminal.io
-        zome: xbterminal.io
-        ttl: 60
+        cross_zone_load_balancing:
+          enabled: True
+    - security_groups: {{ i.SecurityGroupId }}
+    - wait_for_sync: True
+
+
+weblb-add-instances:
+  boto_elb.register_instances:
+    - name: 'www-xbt-elb'
+    - profile: boto-eu-west-1
+    - instances:
+    {% for  id,instance in salt['mine.get']('roles:xbt-web', 'instance_id', expr_form='grain') | dictsort %}
+      - {{ instance }}
+    {% endfor %}
