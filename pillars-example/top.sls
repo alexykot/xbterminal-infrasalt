@@ -3,14 +3,17 @@ base:
     - xbtapp
     - xbt.openssh
     - xbt.users
+    - xbt.discovery
   'G@roles:xbt-web':
     - xbtapp
     - xbt.openssh
     - xbt.users
+    - xbt.discovery
   'G@roles:xbt-tasks':
     - xbtapp
     - xbt.openssh
     - xbt.users
+    - xbt.discovery
   xbt-bitcoin-01:
     - xbt.openssh
     - xbt.users
@@ -49,3 +52,6 @@ base:
     - xbt.openssh
     - xbt.zabbix
     - xbt.nginx
+    - xbt.discovery
+    - xbt.app
+
