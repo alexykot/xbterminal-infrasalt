@@ -1,0 +1,24 @@
+env: infra
+aws:
+  ami: 'ami-e079f893'
+  del_all_vols_on_destroy: False
+  ssh_username: 'admin'
+  sync_after_install: grains
+  roles:
+
+    ca:
+      name: 'xbt-ca'
+      count: 1
+      size: t2.nano
+      volumes: [ { size: 1, device: /dev/sdh, encrypted: true } ]
+      SubnetId: subnet-03a70767
+      SecurityGroupId: [ 'sg-fc913d9b' ]
+      Subnet24: 172.90.165.
+
+    sftp:
+      name: 'xbt-sftp'
+      count: 1
+      size: t2.nano
+      SubnetId: subnet-17e59960
+      SecurityGroupId: [ 'sg-96ba14f1' ]
+      Subnet24: 172.90.201.
