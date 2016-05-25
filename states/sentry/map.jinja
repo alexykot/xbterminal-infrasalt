@@ -1,0 +1,8 @@
+{% import_yaml "sentry/defaults.yml" as default_settings %}
+
+{% set sentry = salt['pillar.get'](
+    'sentry',
+    default=default_settings.sentry,
+    merge=True)
+%}
+

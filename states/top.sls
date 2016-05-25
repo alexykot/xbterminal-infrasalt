@@ -6,6 +6,10 @@ base:
     - openssh.config
     - users
     - hostname
+  'G@roles:xbt-sentry':
+    - redis
+    - database
+    - sentry
   'G@roles:xbt-api':
     - xbtapp
   'G@roles:xbt-web':

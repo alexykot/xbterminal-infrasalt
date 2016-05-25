@@ -22,3 +22,12 @@ aws:
       SubnetId: subnet-17e59960
       SecurityGroupId: [ 'sg-96ba14f1' ]
       Subnet24: 172.90.201.
+
+    sentry:
+      name: 'xbt-sentry'
+      count: 1
+      size: t2.small
+      volumes: [ { size: 5, device: /dev/sdh, encrypted: False } ]
+      SubnetId: subnet-acdc8af5
+      SecurityGroupId: [ 'sg-6d69c20a' ]
+      Subnet24: 172.90.1.

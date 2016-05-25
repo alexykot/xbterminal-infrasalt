@@ -1,0 +1,73 @@
+sentry:
+  foo: bar
+
+#configure systemd services
+  tasks:
+
+    - name: sentry-scheduler
+      unit:
+        - Description = Sentry scheduler
+        - After = postgresql.service redis.service
+      service:
+        - Type=simple
+        - Restart=no
+        - LimitNOFILE=8192
+        - User=sentry
+        - WorkingDirectory=/var/lib/sentry
+        - Environment=SENTRY_CONF=/etc/sentry
+        - ExecStart=/var/lib/sentry/venv/bin/sentry celery beat
+      install:
+        - WantedBy=multi-user.target
+
+    - name:  sentry-web
+      unit:
+        - Description=Sentry web server
+        - After=postgresql.service redis.service
+      service:
+        - Type=simple
+        - User=sentry
+        - WorkingDirectory=/var/lib/sentry
+        - Environment=SENTRY_CONF=/etc/sentry
+        - ExecStart=/var/lib/sentry/venv/bin/sentry run web
+      install:
+        - WantedBy=multi-user.target
+
+    - name: sentry-worker
+      unit:
+        - Description=Sentry worker
+        - After=postgresql.service redis.service
+      service:
+        - Type=simple
+        - User=sentry
+        - Group=sentry
+        - WorkingDirectory=/var/lib/sentry
+        - Environment=SENTRY_CONF=/etc/sentry
+        - ExecStart=/var/lib/sentry/venv/bin/sentry celery worker
+      install:
+        - WantedBy=multi-user.target
+
+#TODO: cleanup worker
+
+
+
+##main config
+  config:
+    DATABASES:
+      default:
+        ENGINE: 'sentry.db.postgres'
+        NAME: 'sentrydb'
+        USER: 'sentry_usr'
+        PASSWORD: 'zX'
+        HOST: '127.0.0.1'
+        PORT: 5432
+
+#new style config
+    yml:
+      mail.backend: dummy
+      redis.clusters:
+        default:
+          hosts:
+            0:
+              host: 127.0.0.1
+              port: 6379
+              db: 4

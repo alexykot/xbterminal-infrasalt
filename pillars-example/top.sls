@@ -1,4 +1,8 @@
 base:
+  'G@roles:xbt-sentry':
+    - xbt.openssh
+    - xbt.users
+    - xbt.sentry
   'G@roles:xbt-api':
     - xbtapp
     - xbt.openssh
