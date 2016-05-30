@@ -13,6 +13,8 @@ nginx:
     - watch:
       - file: /etc/nginx/*
       - file: /etc/security/limits.conf
+      - cmd: gendhparam
+
 
 /etc/nginx/nginx.conf:
   file.managed:
@@ -32,5 +34,15 @@ nginx:
       - nginx hard nproc 20000
       - nginx soft nofile 20000
       - nginx hard nofile 20000
- 
 
+gendhparam:
+  cmd:
+    - run
+    - name: openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
+    - creates: /etc/nginx/ssl/dhparam.pem
+    - require:
+      - file: /etc/nginx/ssl/
+
+/etc/nginx/ssl/:
+  file:
+    - directory
