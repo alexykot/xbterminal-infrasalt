@@ -1,5 +1,6 @@
 sentry:
-  foo: bar
+  key: 'key'
+  crt: 'crt'
 
 #configure systemd services
   tasks:
