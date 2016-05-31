@@ -34,3 +34,5 @@ CACHES = {{ config.CACHES }}
 RQ_QUEUES = {{ config.RQ_QUEUES }}
 
 BITCOIND_SERVERS = {{ config.BITCOIND_SERVERS }}
+
+RAVEN_CONFIG = {{ config.RAVEN_CONFIG }}

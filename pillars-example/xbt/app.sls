@@ -4,6 +4,9 @@ xbt:
     config:
       ALLOWED_HOSTS:
         - '*'
+      RAVEN_CONFIG:
+        dsn: 'http://db0:xyz@sentry.xbthq.int/7'
+
 
       AWS_STORAGE_BUCKET_NAME: 'xbt-webstatic-prod'
       AWS_ACCESS_KEY_ID: 'xyz'
