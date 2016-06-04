@@ -10,6 +10,7 @@ base:
     - redis
     - database
     - sentry
+    - postfix
   'G@roles:xbt-api':
     - xbtapp
   'G@roles:xbt-web':

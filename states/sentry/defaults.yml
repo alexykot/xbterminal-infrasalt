@@ -49,8 +49,6 @@ sentry:
 
 #TODO: cleanup worker
 
-
-
 ##main config
   config:
     DATABASES:

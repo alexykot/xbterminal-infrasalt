@@ -1,3 +1,12 @@
+postfix:
+  config:
+    relay:
+      host: 'email-smtp.eu-west-1.amazonaws.com'
+      port: 587
+      user: 'AKIAIX'
+      port: 'Aqz3Cx'
+
+
 sentry:
   config:
     DATABASES:
@@ -8,6 +17,19 @@ sentry:
         PASSWORD: 'zX'
         HOST: '127.0.0.1'
         PORT: 5432
+    yml:
+      mail.backend:  smtp
+      mail.from: 'sentr@xbthq.co.uk'
+      mail.host: '127.0.0.1'
+      mail.port: 25
+        redis.clusters:
+          default:
+            hosts:
+              0:
+                host: 127.0.0.1
+                port: 6379
+                db: 4
+
 
 database:
   datadisk:
