@@ -1,0 +1,7 @@
+postfix:
+  config:
+    relay:
+      host: 'relay.example.localhost'
+      port: 587
+      user: 'AKIAxyz'
+      password: 'xyz'

@@ -1,0 +1,7 @@
+{% import_yaml "postfix/defaults.yml" as default_settings %}
+
+{% set postfix = salt['pillar.get'](
+    'postfix',
+    default=default_settings.postfix,
+    merge=True)
+%}
