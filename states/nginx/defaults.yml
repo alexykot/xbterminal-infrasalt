@@ -1,0 +1,4 @@
+nginx:
+  config:
+    ssl: False
+    client: False
