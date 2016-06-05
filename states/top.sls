@@ -26,6 +26,7 @@ base:
     - users
     - hostname
     - postgres
+    - postfix
   xbt-postgresql-01:
     - core
     - maratsh
