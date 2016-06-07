@@ -7,7 +7,7 @@ include:
   file:
     - managed
     - source: salt://systemd/files/task.service
-    - mode: 0600
+    - mode: 0644
     - user: root
     - group: root
     - template: jinja
@@ -34,7 +34,7 @@ systemctl restart {{ task.name }}.service:
   file:
     - managed
     - source: salt://systemd/files/task.timer
-    - mode: 0600
+    - mode: 0644
     - user: root
     - group: root
     - template: jinja
