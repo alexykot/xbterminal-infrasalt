@@ -3,4 +3,4 @@ systemctl daemon-reload:
     - wait
     - name: systemctl daemon-reload
     - watch:
-      - file:  /etc/systemd/system/*
+      - file:  /lib/systemd/system/*
