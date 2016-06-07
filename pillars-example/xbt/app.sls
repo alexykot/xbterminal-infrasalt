@@ -82,29 +82,38 @@ xbt:
 
       TIME_ZONE: 'Europe/London'
 
-# TODO: use salt mine for detecting hosts
+systemd:
     tasks:
-      -  name: send_reconciliation
+      -  name: xbterminal-send_reconciliation
+         unit:
+           - Description = xbterminal-send_reconciliation
          service:
            - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py send_reconciliation"
            - Restart=no
            - LimitNOFILE=8192
            - User=xbt-app
+         install: []
          timer:
            - OnUnitInactiveSec=5m
-      -  name: check_kyc
+      -  name: xbterminal-check_kyc
+         unit:
+           - Description = xbterminal-check_kyc
          service:
            - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py check_kyc"
            - Restart=no
            - LimitNOFILE=8192
            - User=xbt-app
+         install: []
          timer:
            - OnUnitInactiveSec=2h
-      -  name: check_wallet
+      -  name: xbterminal-check_wallet
+         unit:
+           - Description = xbterminal-check_wallet
          service:
            - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py check_wallet"
            - Restart=no
            - LimitNOFILE=8192
            - User=xbt-app
+         install: []
          timer:
            - OnUnitInactiveSec=30m
