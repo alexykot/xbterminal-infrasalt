@@ -106,3 +106,49 @@ postgres:
     lc_time = 'en_US.UTF-8'
     log_line_prefix = '%t [%p-%l] %q%u@%d '
     log_timezone = 'localtime'
+
+
+systemd:
+    tasks:
+
+      - name: sentry-scheduler
+        unit:
+          - Description = Sentry scheduler
+          - After = postgresql.service redis.service
+        service:
+          - Type=simple
+          - Restart=no
+          - LimitNOFILE=8192
+          - User=sentry
+          - WorkingDirectory=/var/lib/sentry
+          - Environment=SENTRY_CONF=/etc/sentry
+          - ExecStart=/var/lib/sentry/venv/bin/sentry celery beat
+        install:
+          - WantedBy=multi-user.target
+
+      - name:  sentry-web
+        unit:
+          - Description=Sentry web server
+          - After=postgresql.service redis.service
+        service:
+          - Type=simple
+          - User=sentry
+          - WorkingDirectory=/var/lib/sentry
+          - Environment=SENTRY_CONF=/etc/sentry
+          - ExecStart=/var/lib/sentry/venv/bin/sentry run web
+        install:
+          - WantedBy=multi-user.target
+
+      - name: sentry-worker
+        unit:
+          - Description=Sentry worker
+          - After=postgresql.service redis.service
+        service:
+          - Type=simple
+          - User=sentry
+          - Group=sentry
+          - WorkingDirectory=/var/lib/sentry
+          - Environment=SENTRY_CONF=/etc/sentry
+          - ExecStart=/var/lib/sentry/venv/bin/sentry celery worker
+        install:
+          - WantedBy=multi-user.target
