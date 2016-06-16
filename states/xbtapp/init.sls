@@ -5,7 +5,7 @@ include:
   - redis
   - nginx
   - xbthq.repo
-  - systemd
+  - systemd.reload
   - xbtapp.config
 {% if 'xbt-tasks' in grains['roles'] %}
   - xbtapp.tasks
