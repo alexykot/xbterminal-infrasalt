@@ -6,6 +6,7 @@ base:
     - openssh.config
     - users
     - hostname
+    - zabbix.agent
   'G@roles:xbt-sentry':
     - redis
     - database
