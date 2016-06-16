@@ -13,6 +13,8 @@ include:
     - template: jinja
     - context:
       task: {{ task }}
+    - watch_in:
+      cmd: systemctl daemon-reload
 
 
 systemctl enable {{ task.name }}.service:
@@ -39,6 +41,9 @@ systemctl restart {{ task.name }}.service:
     - group: root
     - template: jinja
       task: {{ task }}
+    - watch_in:
+      cmd: systemctl daemon-reload
+
 
 
 
