@@ -9,6 +9,7 @@ sentry_required_pkgs:
       - libxml2-dev
       - libxslt1-dev
       - libffi-dev
+      - libjpeg-dev
 
 sentry_user:
   user.present:
