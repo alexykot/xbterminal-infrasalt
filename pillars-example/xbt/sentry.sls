@@ -18,7 +18,7 @@ sentry:
         HOST: '127.0.0.1'
         PORT: 5432
     yml:
-      mail.backend:  smtp
+      mail.backend: django.core.mail.backends.smtp.EmailBackend
       mail.from: 'sentr@xbthq.co.uk'
       mail.host: '127.0.0.1'
       mail.port: 25
@@ -111,9 +111,9 @@ postgres:
 systemd:
     tasks:
 
-      - name: sentry-scheduler
+      - name: sentry-cleanup
         unit:
-          - Description = Sentry scheduler
+          - Description = Sentry cleanup
           - After = postgresql.service redis.service
         service:
           - Type=simple
@@ -122,7 +122,23 @@ systemd:
           - User=sentry
           - WorkingDirectory=/var/lib/sentry
           - Environment=SENTRY_CONF=/etc/sentry
-          - ExecStart=/var/lib/sentry/venv/bin/sentry celery beat
+          - ExecStart=/var/lib/sentry/venv/bin/sentry cleanup --days=90
+        install: []
+        timer:
+          - 'OnCalendar=*-*-* 03:00:00'
+
+      - name: sentry-cron
+        unit:
+          - Description = Sentry Beat Service
+          - After = postgresql.service redis.service
+        service:
+          - Type=simple
+          - Restart=always
+          - LimitNOFILE=8192
+          - User=sentry
+          - WorkingDirectory=/var/lib/sentry
+          - Environment=SENTRY_CONF=/etc/sentry
+          - ExecStart=/var/lib/sentry/venv/bin/sentry run cron
         install:
           - WantedBy=multi-user.target
 
@@ -149,6 +165,6 @@ systemd:
           - Group=sentry
           - WorkingDirectory=/var/lib/sentry
           - Environment=SENTRY_CONF=/etc/sentry
-          - ExecStart=/var/lib/sentry/venv/bin/sentry celery worker
+          - ExecStart=/var/lib/sentry/venv/bin/sentry run worker
         install:
           - WantedBy=multi-user.target
