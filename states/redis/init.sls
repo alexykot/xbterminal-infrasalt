@@ -27,3 +27,9 @@ redis-config:
     - name: /etc/redis/redis.conf
     - source: salt://redis/files/redis.conf
     - template: jinja
+
+vm.overcommit_memory:
+  sysctl.present:
+    - value: 1
+
+    
