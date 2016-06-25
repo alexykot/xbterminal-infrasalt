@@ -1,3 +1,11 @@
+postfix:
+  config:
+    relay:
+      host: 'email-smtp.eu-west-1.amazonaws.com'
+      port: 587
+      user: 'e.g. aws id'
+      password: 'e.g. aws key'
+
 xbt:
   app:
     version: '>1'
@@ -8,17 +16,17 @@ xbt:
         dsn: 'http://db0:xyz@sentry.xbthq.int/7'
 
 
-      AWS_STORAGE_BUCKET_NAME: 'xbt-webstatic-prod'
+      AWS_STORAGE_BUCKET_NAME: 'xbt-storage-prod'
       AWS_ACCESS_KEY_ID: 'xyz'
       AWS_SECRET_ACCESS_KEY: 'xyz'
 
       RECAPTCHA_PRIVATE_KEY: '6Le0VwUTAAAAAN1GLkUSgwOkcmYFRJ8wdnOAIxiX'
       RECAPTCHA_PUBLIC_KEY: '6Le0VwUTAAAAAMKDoyCdgNolg2v-XbKKlD9LKVqj'
 
-      EMAIL_HOST: smtp.zoho.com
-      EMAIL_PORT: 465
+      EMAIL_HOST: 127.0.0.1
+      EMAIL_PORT: 25
       EMAIL_HOST_USER: no-reply@xbterminal.io
-      EMAIL_HOST_PASSWORD: xyz
+      EMAIL_HOST_PASSWORD:
       EMAIL_USE_TLS: False
       DEFAULT_FROM_EMAIL: no-reply@xbterminal.io
 

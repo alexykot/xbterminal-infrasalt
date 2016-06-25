@@ -14,11 +14,14 @@ base:
     - postfix
   'G@roles:xbt-api':
     - xbtapp
+    - postfix
   'G@roles:xbt-web':
     - xbtapp
+    - postfix
   'G@roles:xbt-tasks':
     - xbtapp
     - xbtapp.tasks
+    - postfix
   xbt-monitoring-01:
     - core
     - maratsh
