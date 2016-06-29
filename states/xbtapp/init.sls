@@ -7,7 +7,7 @@ include:
   - xbthq.repo
   - systemd.reload
   - xbtapp.config
-  1- xbtapp.certs
+  - xbtapp.certs
 {% if 'xbt-tasks' in grains['roles'] %}
   - xbtapp.tasks
 {% endif %}
