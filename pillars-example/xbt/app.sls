@@ -3,31 +3,54 @@ postfix:
     relay:
       host: 'email-smtp.eu-west-1.amazonaws.com'
       port: 587
-      user: 'e.g. aws id'
-      password: 'e.g. aws key'
+      user: 'AA'
+      password: 'AmvP'
+
 
 xbt:
   app:
-    version: '>1'
+    version: '1.2016.06.29-b1'
+    infrastructure-certs:
+      xbt_payment_protocol_key: |
+        -----BEGIN PRIVATE KEY-----
+        -----END PRIVATE KEY-----
+
+      xbt_payment_protocol_crt: |
+        -----BEGIN CERTIFICATE-----
+        -----END CERTIFICATE-----
+      ca: |
+        -----BEGIN CERTIFICATE-----
+        -----END CERTIFICATE-----
+      crt: |
+        -----BEGIN CERTIFICATE-----
+        -----END CERTIFICATE-----
+      key: |
+        -----BEGIN PRIVATE KEY-----
+        -----END PRIVATE KEY-----
+
+
+
     config:
       ALLOWED_HOSTS:
         - '*'
-      RAVEN_CONFIG:
-        dsn: 'http://db0:xyz@sentry.xbthq.int/7'
 
+      RAVEN_CONFIG:
+        dsn: 'http://d68:d10f7ede908f@sentry.xbthq.int/7'
 
       AWS_STORAGE_BUCKET_NAME: 'xbt-storage-prod'
-      AWS_ACCESS_KEY_ID: 'xyz'
-      AWS_SECRET_ACCESS_KEY: 'xyz'
+      AWS_ACCESS_KEY_ID: ''
+      AWS_SECRET_ACCESS_KEY: ''
 
-      RECAPTCHA_PRIVATE_KEY: '6Le0VwUTAAAAAN1GLkUSgwOkcmYFRJ8wdnOAIxiX'
-      RECAPTCHA_PUBLIC_KEY: '6Le0VwUTAAAAAMKDoyCdgNolg2v-XbKKlD9LKVqj'
+      RECAPTCHA_PRIVATE_KEY: ''
+      RECAPTCHA_PUBLIC_KEY: ''
+      STATIC_URL: 'https://xbt-webstatic-prod.s3-eu-west-1.amazonaws.com/'
 
       EMAIL_HOST: 127.0.0.1
       EMAIL_PORT: 25
-      EMAIL_HOST_USER: no-reply@xbterminal.io
-      EMAIL_HOST_PASSWORD:
+      EMAIL_HOST_USER: ''
+      EMAIL_HOST_PASSWORD: ''
       EMAIL_USE_TLS: False
+      EMAIL_USE_SSL: False
       DEFAULT_FROM_EMAIL: no-reply@xbterminal.io
 
       SESSION_COOKIE_SECURE: True
@@ -44,16 +67,16 @@ xbt:
         default:
           ENGINE: 'django.db.backends.postgresql_psycopg2'
           NAME: 'xbterminal'
-          USER: 'xbterm_usr'
-          PASSWORD: 'xyz'
-          HOST: '172.90.204.11'
+          USER: 'xbterminal'
+          PASSWORD: 'n3'
+          HOST: 'xbt-rds-.eu-west-1.rds.amazonaws.com'
           PORT: 5432
 
       BITCOIND_SERVERS:
         mainnet:
-          HOST: 54.229.125.109
+          HOST: node.xbterminal.io
           USER: xbterminal
-          PASSWORD: 'xyz'
+          PASSWORD: 'WB'
         testnet:
           HOST: node.xbterminal.io
           USER: user
@@ -63,7 +86,7 @@ xbt:
         default:
           HOST: https://sam.xbthq.co.uk/
           USER: salt-xbt-prod
-          PASSWORD: xyz
+          PASSWORD: 9d
           CLIENT_CERT: client/server.crt
           CLIENT_KEY: client/server.key
           CA_CERT: xbthq.crt
@@ -90,38 +113,76 @@ xbt:
 
       TIME_ZONE: 'Europe/London'
 
+
 systemd:
-    tasks:
-      -  name: xbterminal-send_reconciliation
-         unit:
-           - Description = xbterminal-send_reconciliation
-         service:
-           - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py send_reconciliation"
-           - Restart=no
-           - LimitNOFILE=8192
-           - User=xbt-app
-         install: []
-         timer:
-           - OnUnitInactiveSec=5m
-      -  name: xbterminal-check_kyc
-         unit:
-           - Description = xbterminal-check_kyc
-         service:
-           - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py check_kyc"
-           - Restart=no
-           - LimitNOFILE=8192
-           - User=xbt-app
-         install: []
-         timer:
-           - OnUnitInactiveSec=2h
-      -  name: xbterminal-check_wallet
-         unit:
-           - Description = xbterminal-check_wallet
-         service:
-           - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py check_wallet"
-           - Restart=no
-           - LimitNOFILE=8192
-           - User=xbt-app
-         install: []
-         timer:
-           - OnUnitInactiveSec=30m
+  tasks:
+    - name: xbterminal-rqworker-high
+      unit:
+        - Description = xbterminal-rqworker-high
+      service:
+        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py  rqworker high"
+        - Restart=always
+        - LimitNOFILE=8192
+        - User=xbt-app
+      install:
+        - WantedBy=multi-user.target
+
+
+    - name: xbterminal-rqworker-low
+      unit:
+        - Description = xbterminal-rqworker-low
+      service:
+        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqworker low"
+        - Restart=always
+        - LimitNOFILE=8192
+        - User=xbt-app
+      install:
+        - WantedBy=multi-user.target
+
+
+    - name: xbterminal-rqscheduler
+      unit:
+        - Description = xbterminal-rqscheduler
+      service:
+        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqscheduler --queue high --interval=1"
+        - Restart=always
+        - LimitNOFILE=8192
+        - User=xbt-app
+      install:
+        - WantedBy=multi-user.target
+
+    - name: xbterminal-cryptopay_sync
+      unit:
+        - Description = xbterminal-cryptopay_sync
+      service:
+        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py cryptopay_sync"
+        - Restart=no
+        - LimitNOFILE=8192
+        - User=xbt-app
+      install: []
+      timer:
+        - OnUnitInactiveSec=30m
+
+    -  name: xbterminal-send_reconciliation
+       unit:
+         - Description = xbterminal-send_reconciliation
+       service:
+         - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py send_reconciliation"
+         - Restart=no
+         - LimitNOFILE=8192
+         - User=xbt-app
+       install: []
+       timer:
+         - OnUnitInactiveSec=5m
+
+    -  name: xbterminal-check_wallet
+       unit:
+         - Description = xbterminal-check_wallet
+       service:
+         - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py check_wallet"
+         - Restart=no
+         - LimitNOFILE=8192
+         - User=xbt-app
+       install: []
+       timer:
+         - OnUnitInactiveSec=30m
