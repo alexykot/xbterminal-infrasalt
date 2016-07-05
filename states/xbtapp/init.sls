@@ -16,7 +16,7 @@ xbterminal-website:
   pkg:
     {% if salt['pillar.get']('version') %}
     - installed
-    - version: '{{ salt['pillar']['version'] }}'
+    - version: '{{ salt['pillar.get']('version') }}'
     {% else %}
     - latest
     {% endif %}
