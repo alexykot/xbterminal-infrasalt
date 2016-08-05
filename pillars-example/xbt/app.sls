@@ -77,6 +77,7 @@ xbt:
           HOST: node.xbterminal.io
           USER: xbterminal
           PASSWORD: 'WB'
+          USE_SSL: False
         testnet:
           HOST: node.xbterminal.io
           USER: user
