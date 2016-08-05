@@ -14,8 +14,12 @@ include:
 
 xbterminal-website:
   pkg:
+    {% if salt['pillar.get']('version') %}
     - installed
-    - version: '{{ salt['pillar.get']('version', app.version )|default('>1') }}'
+    - version: '{{ salt['pillar.get']('version') }}'
+    {% else %}
+    - latest
+    {% endif %}
     - refresh: True
     - require_in:
       - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py

@@ -1,6 +1,5 @@
 xbt:
   app:
-    version: '>1'
     config:
       ALLOWED_HOSTS:
         - '*'
