@@ -1,0 +1,102 @@
+interface: 0.0.0.0
+ipv6: False
+max_open_files: 100000
+
+worker_threads: 5
+pidfile: /var/run/salt-master.pid
+
+timeout: 500
+
+fileserver_backend:
+  - roots
+  - git
+  
+gitfs_provider: gitpython
+gitfs_base: master
+
+gitfs_remotes:
+  - git@bitbucket.org:xbterminal/xbterminal-infrasalt.git:
+    - root: states
+    - mountpoint: salt://
+    - base: master
+
+  - https://github.com/saltstack-formulas/openssh-formula.git:
+    - root: openssh
+    - mountpoint: salt://openssh
+    - base: master
+
+  - https://github.com/saltstack-formulas/users-formula.git:
+    - root: users
+    - mountpoint: salt://users
+    - base: master
+
+  - https://github.com/saltstack-formulas/postgres-formula.git:
+    - root: postgres
+    - mountpoint: salt://postgres
+    - base: master
+
+  - https://github.com/saltstack-formulas/timezone-formula.git:
+    - root: timezone
+    - mountpoint: salt://timezone
+    - base: master
+
+  - https://github.com/saltstack-formulas/uwsgi-formula.git:
+    - root: uwsgi
+    - mountpoint: salt://uwsgi
+    - base: master
+
+  - https://github.com/saltstack-formulas/chrony-formula.git:
+    - root: chrony
+    - mountpoint: salt://chrony
+    - base: master
+
+
+file_roots:
+  base:
+    - /srv/salt/states/base/
+  dev:
+    - /srv/salt/states/dev/
+  stage:
+    - /srv/salt/states/stage/
+
+pillar_roots:
+  base:
+    - /srv/salt/pillars/base/
+  dev:
+    - /srv/salt/pillars/dev/
+  stage:
+    - /srv/salt/pillars/stage/
+
+top_file_merging_strategy: same
+
+
+reactor:
+  - 'salt/cloud/*/created':
+    - '/srv/salt/reactor/startup.sls'
+
+
+rest_wsgi:
+  port: 8001
+
+
+
+external_auth:
+  pam:
+    jenkins:
+      - test.*
+      - pkg.*
+      - state.sls
+      - '@runner'
+      - '@jobs'
+    maratsh:
+      - test.*
+      - '@jobs'
+      - state.sls
+
+log_level: warning
+
+sentry_handler:
+  dsn: 'http://key:id@sentrydsn.xbthq.int/5'
+  log_level: warning
+
+log_level: warning
