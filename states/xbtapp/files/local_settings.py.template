@@ -1,10 +1,9 @@
 
 ALLOWED_HOSTS = {{ config.ALLOWED_HOSTS }}
 AWS_STORAGE_BUCKET_NAME = '{{ config.AWS_STORAGE_BUCKET_NAME }}'
-AWS_ACCESS_KEY_ID = 'AKIAICXY62HLYRPM47YQ'
-AWS_SECRET_ACCESS_KEY = '36rAYJ326spmvdTONtwEFD8EbNyUyWbZLprOGkRmv'
+AWS_ACCESS_KEY_ID = '{{ config.AWS_ACCESS_KEY_ID }}'
+AWS_SECRET_ACCESS_KEY = '{{ config.AWS_SECRET_ACCESS_KEY}}'
 
-AWS_S3_CUSTOM_DOMAIN = '{{ config.AWS_STORAGE_BUCKET_NAME }}.s3-eu-west-1.amazonaws.com'
 STATIC_URL = "https://xbt-webstatic-prod.s3-eu-west-1.amazonaws.com/"
 #STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
