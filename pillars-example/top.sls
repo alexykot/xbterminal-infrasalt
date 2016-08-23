@@ -1,4 +1,6 @@
 base:
+  'xbt-*':
+    - xbt.time
   'G@roles:xbt-sentry':
     - xbt.openssh
     - xbt.users
@@ -58,4 +60,3 @@ base:
     - xbt.nginx
     - xbt.discovery
     - xbt.app
-

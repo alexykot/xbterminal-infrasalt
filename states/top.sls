@@ -7,6 +7,7 @@ base:
     - users
     - hostname
     - zabbix.agent
+    - chrony.config
   'G@roles:xbt-sentry':
     - redis
     - database
