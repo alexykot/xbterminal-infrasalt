@@ -121,8 +121,8 @@ systemd:
       unit:
         - Description = xbterminal-rqworker-high
       service:
-        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py  rqworker high"
-        - Restart=always
+        - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqworker high
+        - Restart=no
         - LimitNOFILE=8192
         - User=xbt-app
       install:
@@ -133,8 +133,8 @@ systemd:
       unit:
         - Description = xbterminal-rqworker-low
       service:
-        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqworker low"
-        - Restart=always
+        - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqworker low
+        - Restart=no
         - LimitNOFILE=8192
         - User=xbt-app
       install:
@@ -145,8 +145,8 @@ systemd:
       unit:
         - Description = xbterminal-rqscheduler
       service:
-        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqscheduler --queue high --interval=1"
-        - Restart=always
+        - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqscheduler --queue high --interval=1
+        - Restart=no
         - LimitNOFILE=8192
         - User=xbt-app
       install:
@@ -156,7 +156,7 @@ systemd:
       unit:
         - Description = xbterminal-cryptopay_sync
       service:
-        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py cryptopay_sync"
+        - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py cryptopay_sync
         - Restart=no
         - LimitNOFILE=8192
         - User=xbt-app
@@ -168,7 +168,7 @@ systemd:
        unit:
          - Description = xbterminal-send_reconciliation
        service:
-         - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py send_reconciliation"
+         - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py send_reconciliation
          - Restart=no
          - LimitNOFILE=8192
          - User=xbt-app
@@ -180,7 +180,7 @@ systemd:
        unit:
          - Description = xbterminal-check_wallet
        service:
-         - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py check_wallet"
+         - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py check_wallet
          - Restart=no
          - LimitNOFILE=8192
          - User=xbt-app
