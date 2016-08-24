@@ -56,12 +56,12 @@ xbt:
       SESSION_COOKIE_SECURE: True
       CSRF_COOKIE_SECURE: True
 
-      PKI_KEY_FILE: 'xbterminal_io_2015.key'
+      PKI_KEY_FILE: 'bip70/xbterminal_io.key'
       PKI_CERTIFICATES:
-        - 'xbterminal_io_2015.pem'
-        - 'COMODORSADomainValidationSecureServerCA.pem'
-        - 'COMODORSAAddTrustCA.pem'
-        - 'AddTrustExternalCARoot.pem'
+        - 'bip70/xbterminal_io.pem'
+        - 'bip70/COMODORSADomainValidationSecureServerCA.pem'
+        - 'bip70/COMODORSAAddTrustCA.pem'
+        - 'bip70/AddTrustExternalCARoot.pem'
 
       DATABASES:
         default:
