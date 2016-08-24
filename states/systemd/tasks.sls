@@ -1,8 +1,9 @@
-{% from "systemd/map.jinja" import systemd with context %}
+{% macro systemd_tasks(tasks) %}
+
 include:
   - systemd.reload
 
-{% for task in systemd.tasks %}
+{% for task in tasks %}
 /lib/systemd/system/{{ task.name }}.service:
   file:
     - managed
@@ -63,3 +64,5 @@ systemctl restart {{ task.name }}.timer:
 
 {% endif %}
 {% endfor %}
+
+{% endmacro %}

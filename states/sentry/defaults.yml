@@ -23,3 +23,62 @@ sentry:
               host: 127.0.0.1
               port: 6379
               db: 4
+
+  tasks:
+    - name: sentry-cleanup
+      unit:
+        - Description = Sentry cleanup
+        - After = postgresql.service redis.service
+      service:
+        - Type=simple
+        - Restart=no
+        - LimitNOFILE=8192
+        - User=sentry
+        - WorkingDirectory=/var/lib/sentry
+        - Environment=SENTRY_CONF=/etc/sentry
+        - ExecStart=/var/lib/sentry/venv/bin/sentry cleanup --days=90
+      install: []
+      timer:
+        - 'OnCalendar=*-*-* 03:00:00'
+
+    - name: sentry-cron
+      unit:
+        - Description = Sentry Beat Service
+        - After = postgresql.service redis.service
+      service:
+        - Type=simple
+        - Restart=always
+        - LimitNOFILE=8192
+        - User=sentry
+        - WorkingDirectory=/var/lib/sentry
+        - Environment=SENTRY_CONF=/etc/sentry
+        - ExecStart=/var/lib/sentry/venv/bin/sentry run cron
+      install:
+        - WantedBy=multi-user.target
+
+    - name:  sentry-web
+      unit:
+        - Description=Sentry web server
+        - After=postgresql.service redis.service
+      service:
+        - Type=simple
+        - User=sentry
+        - WorkingDirectory=/var/lib/sentry
+        - Environment=SENTRY_CONF=/etc/sentry
+        - ExecStart=/var/lib/sentry/venv/bin/sentry run web
+      install:
+        - WantedBy=multi-user.target
+
+    - name: sentry-worker
+      unit:
+        - Description=Sentry worker
+        - After=postgresql.service redis.service
+      service:
+        - Type=simple
+        - User=sentry
+        - Group=sentry
+        - WorkingDirectory=/var/lib/sentry
+        - Environment=SENTRY_CONF=/etc/sentry
+        - ExecStart=/var/lib/sentry/venv/bin/sentry run worker
+      install:
+        - WantedBy=multi-user.target

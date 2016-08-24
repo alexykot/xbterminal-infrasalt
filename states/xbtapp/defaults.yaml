@@ -78,29 +78,75 @@ xbt:
 
       TIME_ZONE: 'Europe/London'
 
-# TODO: use salt mine for detecting hosts
-    tasks:
-      -  name: send_reconciliation
-         service:
-           - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py send_reconciliation"
-           - Restart=no
-           - LimitNOFILE=8192
-           - User=xbt-app
-         timer:
-           - OnUnitInactiveSec=5m
-      -  name: check_kyc
-         service:
-           - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py check_kyc"
-           - Restart=no
-           - LimitNOFILE=8192
-           - User=xbt-app
-         timer:
-           - OnUnitInactiveSec=2h
-      -  name: check_wallet
-         service:
-           - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py check_wallet"
-           - Restart=no
-           - LimitNOFILE=8192
-           - User=xbt-app
-         timer:
-           - OnUnitInactiveSec=30m
+
+  tasks:
+    - name: xbterminal-rqworker-high
+      unit:
+        - Description = xbterminal-rqworker-high
+      service:
+        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py  rqworker high"
+        - Restart=no
+        - LimitNOFILE=8192
+        - User=xbt-app
+      install:
+        - WantedBy=multi-user.target
+
+
+    - name: xbterminal-rqworker-low
+      unit:
+        - Description = xbterminal-rqworker-low
+      service:
+        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqworker low"
+        - Restart=no
+        - LimitNOFILE=8192
+        - User=xbt-app
+      install:
+        - WantedBy=multi-user.target
+
+
+    - name: xbterminal-rqscheduler
+      unit:
+        - Description = xbterminal-rqscheduler
+      service:
+        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqscheduler --queue high --interval=1"
+        - Restart=no
+        - LimitNOFILE=8192
+        - User=xbt-app
+      install:
+        - WantedBy=multi-user.target
+
+    - name: xbterminal-cryptopay_sync
+      unit:
+        - Description = xbterminal-cryptopay_sync
+      service:
+        - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py cryptopay_sync"
+        - Restart=no
+        - LimitNOFILE=8192
+        - User=xbt-app
+      install: []
+      timer:
+        - OnUnitInactiveSec=30m
+
+    -  name: xbterminal-send_reconciliation
+       unit:
+         - Description = xbterminal-send_reconciliation
+       service:
+         - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py send_reconciliation"
+         - Restart=no
+         - LimitNOFILE=8192
+         - User=xbt-app
+       install: []
+       timer:
+         - OnUnitInactiveSec=5m
+
+    -  name: xbterminal-check_wallet
+       unit:
+         - Description = xbterminal-check_wallet
+       service:
+         - ExecStart=/bin/bash -c "cd /var/www/xbterminal.com && . venv/bin/activate && python xbterminal/manage.py check_wallet"
+         - Restart=no
+         - LimitNOFILE=8192
+         - User=xbt-app
+       install: []
+       timer:
+         - OnUnitInactiveSec=30m
