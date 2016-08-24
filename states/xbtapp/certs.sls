@@ -2,7 +2,7 @@
 
 
 {% for cert in  [ 'COMODORSADomainValidationSecureServerCA.pem', 'COMODORSAAddTrustCA.pem', 'AddTrustExternalCARoot.pem' ] %}
-/var/www/xbterminal.com/certs/{{ cert }}:
+/var/www/xbterminal.com/certs/bip70/{{ cert }}:
   file:
     - managed
     - makedirs: True
@@ -44,7 +44,7 @@
     - show_changes: False
     - contents_pillar: xbt:app:infrastructure-certs:ca
 
-/var/www/xbterminal.com/certs/xbterminal_io_2015.pem:
+/var/www/xbterminal.com/certs/bip70/xbterminal_io.pem:
   file:
     - managed
     - makedirs: True
@@ -54,7 +54,7 @@
     - show_changes: False
     - contents_pillar: xbt:app:infrastructure-certs:xbt_payment_protocol_crt
 
-/var/www/xbterminal.com/certs/xbterminal_io_2015.key:
+/var/www/xbterminal.com/certs/bip70/xbterminal_io.key:
   file:
     - managed
     - makedirs: True
