@@ -115,7 +115,6 @@ xbt:
       TIME_ZONE: 'Europe/London'
 
 
-systemd:
   tasks:
     - name: xbterminal-rqworker-high
       unit:
