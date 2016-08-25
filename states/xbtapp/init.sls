@@ -25,6 +25,20 @@ xbterminal-website:
       - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
       - file: /var/www/xbterminal.com/logs/
 
+xbterminal-website-db-migrations:
+   cmd.run:
+    - name: /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py migrate
+    - require:
+      - pkg: xbterminal-website
+      - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
+
+xbterminal-website-translations:
+   cmd.run:
+    - name: /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py compilemessages
+    - require:
+      - pkg: xbterminal-website
+      - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
+
 
 uwsgi-pkg:
   pkg:
