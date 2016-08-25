@@ -10,7 +10,7 @@ timeout: 500
 fileserver_backend:
   - roots
   - git
-  
+
 gitfs_provider: gitpython
 gitfs_base: master
 
@@ -48,6 +48,11 @@ gitfs_remotes:
   - https://github.com/saltstack-formulas/chrony-formula.git:
     - root: chrony
     - mountpoint: salt://chrony
+    - base: master
+
+  - https://github.com/maratsh/systemd-formula.git:
+    - root: systemd
+    - mountpoint: salt://systemd
     - base: master
 
 

@@ -32,6 +32,7 @@ https://docs.saltstack.com/en/latest/topics/tutorials/gitfs.html
 * https://github.com/saltstack-formulas/users-formula
 * https://github.com/saltstack-formulas/timezone-formula
 * https://github.com/saltstack-formulas/php-formula
+* https://github.com/maratsh/systemd-formula
 
 
 
