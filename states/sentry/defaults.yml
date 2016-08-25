@@ -1,7 +1,7 @@
 sentry:
   key: 'key'
   crt: 'crt'
-  
+
 ##main config
   config:
     DATABASES:
@@ -40,6 +40,9 @@ sentry:
       install: []
       timer:
         - 'OnCalendar=*-*-* 03:00:00'
+      timer_install:
+        - WantedBy=multi-user.target
+
 
     - name: sentry-cron
       unit:

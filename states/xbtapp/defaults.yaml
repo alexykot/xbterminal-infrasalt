@@ -126,6 +126,9 @@ xbt:
       install: []
       timer:
         - OnUnitInactiveSec=30m
+      timer_install:
+        - WantedBy=multi-user.target
+
 
     -  name: xbterminal-send_reconciliation
        unit:
@@ -138,6 +141,8 @@ xbt:
        install: []
        timer:
          - OnUnitInactiveSec=5m
+       timer_install:
+         - WantedBy=multi-user.target
 
     -  name: xbterminal-check_wallet
        unit:
@@ -150,3 +155,5 @@ xbt:
        install: []
        timer:
          - OnUnitInactiveSec=30m
+       timer_install:
+         - WantedBy=multi-user.target
