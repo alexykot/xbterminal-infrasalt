@@ -25,7 +25,7 @@ include:
 /etc/nginx/ssl/ca.crt:
   file:
     - managed
-    - source: salt://xbthq/files/xbthq.root.crt
+    - source: salt://xbthq/files/xbthq.crt
     - mode: 0600
 
 
