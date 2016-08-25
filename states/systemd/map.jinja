@@ -1,7 +1,0 @@
-{% import_yaml "systemd/defaults.yml" as default_settings %}
-
-{% set systemd = salt['pillar.get'](
-    'systemd',
-    default=default_settings.systemd,
-    merge=True)
-%}

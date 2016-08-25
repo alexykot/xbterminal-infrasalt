@@ -24,7 +24,7 @@
   file:
     - managed
     - source: salt://xbtapp/files/xbterminal-uwsgi.service
-    - mode: 0600
+    - mode: 0644
     - user: root
     - group: root
 
