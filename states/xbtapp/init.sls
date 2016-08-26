@@ -25,12 +25,14 @@ xbterminal-website:
       - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
       - file: /var/www/xbterminal.com/logs/
 
+{% if 'xbt-migrator' in grains['roles'] and salt['pillar.get']('xbt_migrate', False) %}
 xbterminal-website-db-migrations:
    cmd.run:
     - name: /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py migrate
     - require:
       - pkg: xbterminal-website
       - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
+{% endif %}
 
 xbterminal-website-translations:
    cmd.run:
