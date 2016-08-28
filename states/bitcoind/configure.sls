@@ -36,28 +36,6 @@ bitcoind-service:
     - context:
       bd: {{ bd }}
 
-rpccrt:
-  file:
-    - managed
-    - name: {{ bd.rpcsslcertificatechainfile }}
-    - template: jinja
-    - contents_pillar: bitcoind:crt
-    - mode: 0640
-    - dir_mode: 0700
-    - group: bitcoind
-    - user: root
-
-rpckey:
-  file:
-    - managed
-    - name: {{ bd.rpcsslprivatekeyfile }}
-    - template: jinja
-    - contents_pillar: bitcoind:key
-    - mode: 0640
-    - dir_mode: 0750
-    - group: bitcoind
-    - user: root
-
 minissdpd.service:
   service:
     - dead
