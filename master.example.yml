@@ -64,6 +64,12 @@ file_roots:
   stage:
     - /srv/salt/states/stage/
 
+ext_pillar:
+  - git:
+    - master git@bitbucket.org:xbterminal/xbterminal-infrasalt.git:
+      - root: pillars
+      - env: base
+      
 pillar_roots:
   base:
     - /srv/salt/pillars/base/
