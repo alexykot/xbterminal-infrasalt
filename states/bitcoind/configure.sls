@@ -43,7 +43,7 @@ rpccrt:
     - template: jinja
     - contents_pillar: bitcoind:crt
     - mode: 0640
-    - dir_mode: 0750
+    - dir_mode: 0700
     - group: bitcoind
     - user: root
 

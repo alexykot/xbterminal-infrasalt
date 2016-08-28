@@ -1,12 +1,12 @@
 [Unit]
 Description=Bitcoin daemon service {{ bd.net }}
 After=network.target
- 
+
 [Service]
 Type=simple
 User=bitcoind
 ExecStart=/usr/bin/bitcoind -conf=/etc/bitcoin/bitcoind.conf
-
+Restart=always
 
 ExecStartPre=/bin/bash /var/bitcoind/shaper.sh start
 PermissionsStartOnly=True
