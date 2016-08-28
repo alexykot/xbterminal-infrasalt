@@ -11,6 +11,15 @@ include:
 {% if 'xbt-tasks' in grains['roles'] %}
   - xbtapp.tasks
 {% endif %}
+{% if 'xbt-migrator' in grains['roles'] and salt['pillar.get']('xbt_migrate', False) %}
+  - xbtapp.migrate
+{% endif %}
+
+extend:
+  /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py:
+    file:
+      - require_in:
+        - cmd: /var/www/xbterminal.com/venv/bin/python*
 
 xbterminal-website:
   pkg:
@@ -24,6 +33,15 @@ xbterminal-website:
     - require_in:
       - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
       - file: /var/www/xbterminal.com/logs/
+      - cmd: /var/www/xbterminal.com/venv/bin/python*
+
+
+xbterminal-website-translations:
+   cmd.run:
+    - name: /var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py compilemessages
+    - require:
+      - pkg: xbterminal-website
+      - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
 
 
 uwsgi-pkg:
