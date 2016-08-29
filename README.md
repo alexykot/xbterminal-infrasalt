@@ -17,7 +17,7 @@ dev  = dev env
 
 Current state of states is last commit from selected branch.
 
-Plain(not commited)  states can be placed directly in /srv/salt/states/base rootfs folder.
+Plain(not commited)  states can be placed directly in developer's home folder: **/home/<username>/states/**.
 If state is present in rootfs AND in gitfs, rootfs version of state is preffered.
 
 Pillars always use git version
