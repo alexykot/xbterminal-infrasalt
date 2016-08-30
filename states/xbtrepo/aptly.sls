@@ -12,6 +12,6 @@ aptly-api:
 aptly:
   pkg:
     - installed
-    - version: 0.9.5
+    - version: 0.9.6
     - require_in:
       - service: aptly-api
