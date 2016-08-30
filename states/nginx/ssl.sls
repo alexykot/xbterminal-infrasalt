@@ -29,6 +29,8 @@ gendhparam:
     - makedirs: true
     - mode: 0600
     - contents_pillar: nginx:config:ssl:key
+    - show_changes: False
+
 
 /etc/nginx/ssl/{{ nginx.config.ssl.domain }}/{{ nginx.config.ssl.domain }}.crt:
   file:
@@ -37,3 +39,5 @@ gendhparam:
     - template: jinja
     - makedirs: true
     - contents_pillar: nginx:config:ssl:crt
+    - show_changes: False
+    
