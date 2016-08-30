@@ -2,12 +2,7 @@
 include:
   - nginx
   - nginx.ssl
-
-
-#aptly:
-#  pkg:
-#    - installed
-
+  - xbtrepo.aptly
 
 /etc/nginx/conf.d/repo.conf:
   file:

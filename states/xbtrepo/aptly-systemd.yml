@@ -1,0 +1,10 @@
+- name: aptly-api
+  unit:
+    - Description = Aptly repo api
+  service:
+    - ExecStart= /usr/bin/aptly api serve -listen=127.0.0.1:8888
+    - Restart=always
+    - LimitNOFILE=8192
+    - User=repo
+  install:
+    - WantedBy=multi-user.target
