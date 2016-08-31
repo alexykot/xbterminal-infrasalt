@@ -1,7 +1,7 @@
 /usr/local/share/ca-certificates/xbthq.crt:
   file:
     - managed
-    - source: salt://xbthq/files/xbthq.crt
+    - source: salt://xbthq/files/xbthq.root.crt
 
 
 update-ca-certificates:
