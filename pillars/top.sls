@@ -71,3 +71,9 @@ base:
     - xbt.zabbix
     - xbt.nginx
     - xbt.discovery
+  xbt-salt-master-01:
+    - xbt.users
+    - xbt.openssh
+    - xbt.zabbix
+    - xbt.nginx
+    - xbt.nginx.ssl
