@@ -7,11 +7,14 @@ aptly-api:
     - running
     - watch:
       - file: /lib/systemd/system/aptly-api.service
+      - file: aptly-binary
 
 
-aptly:
-  pkg:
-    - installed
-    - version: 0.9.6
-    - require_in:
-      - service: aptly-api
+aptly-binary:
+  file:
+    - managed
+    - name: /usr/bin/aptly
+    - source: https://github.com/maratsh/aptly/releases/download/v0.9.7-path/aptly
+    - source_hash: md5=d3068e8804cce8daff21be291b606291
+    - mode: 0755
+    - show_changes: False
