@@ -8,6 +8,8 @@ base:
     - hostname
     - zabbix.agent
     - chrony.config
+  'xbt-repo':
+    - xbtrepo
   'G@roles:xbt-sentry':
     - redis
     - database

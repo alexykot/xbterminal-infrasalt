@@ -60,6 +60,7 @@ base:
     - xbt.users
     - xbt.openssh
   xbt-repo:
+    - xbt.nginx_ssl
     - xbt.users
     - xbt.openssh
   xbt-build-slave-ami:
@@ -70,3 +71,9 @@ base:
     - xbt.zabbix
     - xbt.nginx
     - xbt.discovery
+  xbt-salt-master-01:
+    - xbt.users
+    - xbt.openssh
+    - xbt.zabbix
+    - xbt.nginx
+    - xbt.nginx.ssl
