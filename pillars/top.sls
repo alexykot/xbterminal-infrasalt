@@ -56,9 +56,6 @@ base:
     - xbt.users
   xbt-build-slave-scw-01:
     - xbt.users
-  xbt-salt-master-01:
-    - xbt.users
-    - xbt.openssh
   xbt-repo:
     - xbt.nginx_ssl
     - xbt.users
