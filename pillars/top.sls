@@ -37,10 +37,9 @@ base:
     - xbt.users
     - xbt.bitcoind
     - xbt.postgres
-  xbt-tasks-*:
+  'G@roles:xbt-tasks':
     - xbt.openssh
     - xbt.users
-    - xbt.postgres
     - xbt.uwsgi
     - xbt.app
     - xbt.discovery
