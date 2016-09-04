@@ -78,6 +78,10 @@ xbt:
 
       TIME_ZONE: 'Europe/London'
 
+      RAVEN_CONFIG:
+        dsn: 'http://xyz:xyz@sentry.xbthq.int/7'
+        transport: 'raven.transport.requests.RequestsHTTPTransport'
+
 
   tasks:
     - name: xbterminal-rqworker-high

@@ -193,9 +193,6 @@ xbt:
       ALLOWED_HOSTS:
         - '*'
 
-      RAVEN_CONFIG:
-        dsn: 'http://db03a80dffd043a8a6e9296283743368:d10f7ede90824e14872d2b5283aaec3f@sentry.xbthq.int/7'
-
       AWS_STORAGE_BUCKET_NAME: 'xbt-storage-prod'
       AWS_ACCESS_KEY_ID: 'AKIAJW6JTGWJTSZFGA4Q'
       AWS_SECRET_ACCESS_KEY: |
@@ -342,3 +339,7 @@ xbt:
           URL: 'redis://172.90.205.31:6379/1'
 
       TIME_ZONE: 'Europe/London'
+
+      RAVEN_CONFIG:
+        dsn: 'http://db03a80dffd043a8a6e9296283743368:d10f7ede90824e14872d2b5283aaec3f@sentry.xbthq.int/7'
+        transport: 'raven.transport.requests.RequestsHTTPTransport'
