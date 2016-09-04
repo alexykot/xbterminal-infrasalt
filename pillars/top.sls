@@ -27,26 +27,12 @@ base:
     - xbt.users
     - xbt.bitcoind
     - xbt.discovery
-  xbt-bitcoincl-01:
-    - xbt.openssh
-    - xbt.users
-    - xbt.bitcoind
-    - xbt.discovery
-  xbt-postgresql-01:
-    - xbt.openssh
-    - xbt.users
-    - xbt.bitcoind
-    - xbt.postgres
   'G@roles:xbt-tasks':
     - xbt.openssh
     - xbt.users
     - xbt.uwsgi
     - xbt.app
     - xbt.discovery
-  xbt-stage-bitcoin-01:
-    - xbt-stage.openssh
-    - xbt-stage.users
-    - xbt-stage.bitcoind
   xbt-dev:
     - xbt.openssh
     - xbt.users
