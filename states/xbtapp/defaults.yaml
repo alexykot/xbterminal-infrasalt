@@ -94,6 +94,7 @@ xbt:
         - User=xbt-app
       install:
         - WantedBy=multi-user.target
+      immediate_restart: True
 
 
     - name: xbterminal-rqworker-low
@@ -106,7 +107,7 @@ xbt:
         - User=xbt-app
       install:
         - WantedBy=multi-user.target
-
+      immediate_restart: True
 
     - name: xbterminal-rqscheduler
       unit:
@@ -118,6 +119,7 @@ xbt:
         - User=xbt-app
       install:
         - WantedBy=multi-user.target
+      immediate_restart: True
 
     - name: xbterminal-cryptopay_sync
       unit:
