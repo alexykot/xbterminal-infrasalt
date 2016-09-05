@@ -8,6 +8,7 @@
     - user: root
     - group: xbt-app
     - mode: 0640
+    - show_changes: False
     - context:
       config: {{ app.config }}
 
