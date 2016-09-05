@@ -58,4 +58,4 @@ base:
     - xbt.openssh
     - xbt.zabbix
     - xbt.nginx
-    - xbt.nginx.ssl
+    - xbt.nginx_ssl
