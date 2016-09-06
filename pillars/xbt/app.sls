@@ -148,7 +148,7 @@ xbt:
         2G/En88OM5sifGguC1hbPhrId0KKzuiNLe+0mBvr26ilMG1xjjHCc02FXu/FC0Zh
         GVC9DYDj9GUQS0wfAKxWETNH9bsydkA3pZ1ZKAXBpgc5ix9NHdue/7k=
         -----END CERTIFICATE-----
-        
+
       key: |
         -----BEGIN PGP MESSAGE-----
 
@@ -328,7 +328,7 @@ xbt:
       CACHES:
          default:
            BACKEND: 'django_redis.cache.RedisCache'
-           LOCATION: 'redis://127.0.0.1:6379/0'
+           LOCATION: 'redis://172.90.205.31:6379/0'
            OPTIONS:
              CLIENT_CLASS: 'django_redis.client.DefaultClient'
 
