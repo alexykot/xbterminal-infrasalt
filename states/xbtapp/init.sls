@@ -36,6 +36,8 @@ xbterminal-website:
     - require_in:
       - file: /var/www/xbterminal.com/xbterminal/xbterminal/local_settings.py
       - file: /var/www/xbterminal.com/logs/
+    - require:
+      - cmd: check-update-ability
 
 
 xbterminal-website-translations:

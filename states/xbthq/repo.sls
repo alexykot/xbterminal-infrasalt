@@ -9,12 +9,17 @@ include:
 /etc/apt/xbt.crt:
   file:
     - managed
-    - source: salt://xbthq/files/xbthq-aws-servers.crt
+    - mode: 0600
+    - show_changes: False
+    - contents_pillar: xbthq:repo:crt
 
 /etc/apt/xbt.key:
   file:
     - managed
-    - source: salt://xbthq/files/xbthq-aws-servers.key
+    - mode: 0600
+    - show_changes: False
+    - contents_pillar: xbthq:repo:key
+
 
 
 /etc/apt/xbt_dev_signing.key:
@@ -41,10 +46,10 @@ apt-key  add /etc/apt/xbt_dev_signing.key:
     - watch:
       - file: /etc/apt/xbt_dev_signing.key
 
-update-index:
+check-update-ability:
   cmd:
-    - wait
-    - name: 'apt-get update -qq'
+    - run
+    - name: 'apt-get update -qq | grep -v "^W:"'
     - watch:
       - file: /etc/apt/apt.conf.d/00ssl-xbt-client-auth
       - file: /etc/apt/xbt.crt

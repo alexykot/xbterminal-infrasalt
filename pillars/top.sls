@@ -2,6 +2,7 @@ base:
   'xbt-*':
     - xbt.minion
     - xbt.time
+    - xbt.hq
   'G@roles:xbt-sentry':
     - xbt.openssh
     - xbt.users
