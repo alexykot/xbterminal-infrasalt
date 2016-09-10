@@ -49,7 +49,7 @@ apt-key  add /etc/apt/xbt_dev_signing.key:
 check-update-ability:
   cmd:
     - run
-    - name: 'apt-get update -qq | grep -v "^W:"'
+    - name: 'apt-get update -qq 2>&1 | grep -c "W: Some index files failed to download. They have been ignored, or old ones used instead." |  grep 0'
     - watch:
       - file: /etc/apt/apt.conf.d/00ssl-xbt-client-auth
       - file: /etc/apt/xbt.crt
