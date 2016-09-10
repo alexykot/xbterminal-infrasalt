@@ -25,6 +25,7 @@ include:
 /etc/apt/xbt_dev_signing.key:
   file:
     - managed
+    - show_changes: False
     - source: salt://xbthq/files/xbt_dev_signing.key
 
 
