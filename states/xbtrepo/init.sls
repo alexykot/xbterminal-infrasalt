@@ -3,6 +3,7 @@ include:
   - nginx
   - nginx.ssl
   - xbtrepo.aptly
+  - xbtrepo.kernel
 
 /etc/nginx/conf.d/repo.conf:
   file:
