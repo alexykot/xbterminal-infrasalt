@@ -25,7 +25,8 @@ include:
 /etc/nginx/ssl/ca.crt:
   file:
     - managed
-    - source: salt://xbthq/files/xbthq.crt
+    - source: salt://xbthq/files/xbthq.root.crt
+    - makedirs: True
     - mode: 0600
 
 
@@ -43,5 +44,5 @@ include:
     - mode: 0600
     - template: jinja
     - makedirs: true
-    - show_changes: False    
+    - show_changes: False
     - contents_pillar: sentry:crt
