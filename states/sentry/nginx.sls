@@ -30,10 +30,11 @@ include:
 
 
 /etc/nginx/ssl/sentry.xbthq.co.uk/sentry.xbthq.co.uk.key:
-  file:    
+  file:
     - managed
     - makedirs: true
     - mode: 0600
+    - show_changes: False
     - contents_pillar: sentry:key
 
 /etc/nginx/ssl/sentry.xbthq.co.uk/sentry.xbthq.co.uk.crt:
@@ -42,4 +43,5 @@ include:
     - mode: 0600
     - template: jinja
     - makedirs: true
+    - show_changes: False    
     - contents_pillar: sentry:crt
