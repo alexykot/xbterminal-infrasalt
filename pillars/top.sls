@@ -45,7 +45,7 @@ base:
   xbt-repo:
     - xbt.nginx_ssl
     - xbt.users
-    - xbt.openssh
+    - xbt.repo
   xbt-build-slave-ami:
     - xbt.users
   xbt-monitoring-01:
