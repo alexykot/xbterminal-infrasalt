@@ -135,21 +135,6 @@ xbt:
       timer_install:
         - WantedBy=multi-user.target
 
-
-    -  name: xbterminal-send_reconciliation
-       unit:
-         - Description = xbterminal-send_reconciliation
-       service:
-         - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py send_reconciliation
-         - Restart=no
-         - LimitNOFILE=8192
-         - User=xbt-app
-       install: []
-       timer:
-         - OnUnitInactiveSec=5m
-       timer_install:
-         - WantedBy=multi-user.target
-
     -  name: xbterminal-check_wallet
        unit:
          - Description = xbterminal-check_wallet
