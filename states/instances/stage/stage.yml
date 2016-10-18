@@ -5,7 +5,7 @@ aws:
   sync_after_install: grains
   roles:
     bitcoind:
-      name: 'xbt-stage-bitcoin-01'
+      name: 'xbt-stage-bitcoin'
       count: 1
       size: t2.nano
       volumes: [ { size: 10, device: /dev/sdh } ]
