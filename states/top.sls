@@ -34,3 +34,11 @@ base:
     - hostname
     - postgres
     - postfix
+  xbt-stage-bitcoin-01:
+    - core
+    - maratsh
+    - openssh
+    - openssh.config
+    - users
+    - hostname
+    - bitcoind
