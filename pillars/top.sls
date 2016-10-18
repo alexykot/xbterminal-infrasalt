@@ -28,6 +28,10 @@ base:
     - xbt.users
     - xbt.bitcoind
     - xbt.discovery
+  xbt-stage-bitcoin-01:
+    - xbt-stage.openssh
+    - xbt-stage.users
+    - xbt-stage.bitcoind
   'G@roles:xbt-tasks':
     - xbt.openssh
     - xbt.users
