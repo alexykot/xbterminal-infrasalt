@@ -38,5 +38,6 @@ bitcoind:
   pkg:
     - installed
     - refresh: True
+    - version: '0.11.1-1'
     - require:
       - file: /etc/apt/sources.list.d/xbterminal-backend.list
