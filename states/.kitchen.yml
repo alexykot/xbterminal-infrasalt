@@ -1,0 +1,34 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: salt_solo
+  is_file_root: true
+  state_top_from_file: true
+  dependencies:
+    - { path: '../formulas/systemd-formula', name: 'systemd' }
+    - { path: '../formulas/openssh-formula', name: 'openssh' }
+    - { path: '../formulas/users-formula', name: 'users' }
+    - { path: '../formulas/chrony-formula', name: 'chrony' }    
+    - { path: '../formulas/salt-formula', name: 'salt' }
+
+
+platforms:
+  - name: debian/jessie64
+    driver:
+      customize:
+        memory: 2048
+
+suites:
+  - name: default
+    salt_version: 2016.3.3
+    run_list:
+    attributes:
+
+  - name: default_xbtsam
+    provisioner:
+
+      grains:
+        roles:
+          - xbtsam
