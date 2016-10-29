@@ -1,0 +1,7 @@
+{% import_yaml "xbtsyslog/defaults.yml" as default_settings %}
+
+{% set xbtsyslog = salt['pillar.get'](
+    'xbtsyslog',
+    default=default_settings.xbtsyslog,
+    merge=True)
+%}
