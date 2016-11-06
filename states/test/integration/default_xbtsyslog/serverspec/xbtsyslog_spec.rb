@@ -20,6 +20,6 @@ describe command('loggen -Q -i  -s 1000 -I 1 -P -n 100000  127.0.0.1 5129 ') do
   its(:exit_status) { should eq 0 }
 end
 
-describe file('/var/log/xbterminal/localhost/terminal.log') do
+describe file('/var/log/xbterminal/pre-init/127.0.0.1/terminal.log') do
   it { should be_file }
 end
