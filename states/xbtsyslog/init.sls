@@ -38,3 +38,16 @@ syslog-ng-service:
     - template: jinja
     - context:
       xbtsyslog: {{ xbtsyslog }}
+
+{% for file in [ 'crt', 'key' ] %}
+/etc/syslog-ng/key.d/{{ file }}.pem:
+  file:
+    - managed
+    - makedirs: True
+    - mode: 0600
+    - user: root
+    - group: root
+    - show_changes: False
+    - contents_pillar: xbtsyslog:tls:{{ file }}
+
+{% endfor %}
