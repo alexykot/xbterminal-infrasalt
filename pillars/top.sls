@@ -3,6 +3,10 @@ base:
     - xbt.minion
     - xbt.time
     - xbt.hq
+  'G@roles:xbt-syslog':
+    - xbt.openssh
+    - xbt.users
+    - xbt.syslog
   'G@roles:xbt-sentry':
     - xbt.openssh
     - xbt.users

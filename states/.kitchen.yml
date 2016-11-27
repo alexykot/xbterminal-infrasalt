@@ -10,9 +10,7 @@ provisioner:
     - { path: '../formulas/systemd-formula', name: 'systemd' }
     - { path: '../formulas/openssh-formula', name: 'openssh' }
     - { path: '../formulas/users-formula', name: 'users' }
-    - { path: '../formulas/chrony-formula', name: 'chrony' }    
-    - { path: '../formulas/salt-formula', name: 'salt' }
-
+    - { path: '../formulas/chrony-formula', name: 'chrony' }
 
 platforms:
   - name: debian/jessie64
@@ -32,3 +30,81 @@ suites:
       grains:
         roles:
           - xbtsam
+
+  - name: default_xbtsyslog
+    driver:
+      vagrantfiles:
+        - .vagrantfile_kitchen_disks.rb
+      customize:
+        memory: 2048
+      network:
+        - [ "private_network", {ip: "192.168.33.167"} ]
+
+    provisioner:
+
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - syslog
+        syslog.sls:
+          xbtsyslog:
+            blockdev: /dev/sdb
+            dir: /var/log/xbterminal
+            tls:
+              key: |
+                -----BEGIN PRIVATE KEY-----
+                MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCqasNGtOYoReB2
+                D1O9chlYbYIIC9JLwZSqINRvUwBmtouu41FLT3JmYc3GvJlGZl6Bd8ornYvjeGXJ
+                CEnuNdys+FsOuhL6rFmqrxaUhH2vJc9YM7/fwDGXE85unTlLuyfTQ0aHEYP2shqE
+                h00ZSbe3T+6wfgY1jJM8JeyOPlXn8ZGsXK4znFKq48EeUadAsXsnYlbbiaCmqwUz
+                qo9ym7Y4xhmpcMixN0IUs1Db6NFl/O1KO1Lqp1Fmqc9K10FcurxdVXF19nKiUxVx
+                WAKBEEgIVew77XzewGucga4V3F5PVX1hC3ZP+Serwp7e7JV5vXGMB6IAA8XrQgC+
+                VOijTLLxAgMBAAECggEAD24nTEmo5VCeaFIu9OJV5SnVMkFPw0g928GpOoM7cBFr
+                SGSQwc7pvtdwOGRvRG6UdAiSp6xWNDx8it1TRFxgJNE//W9ftI7Sd5/u3Xe5oZg8
+                0/Grl+jhFJrYgC+ANpk1m+1lf2lYl4e82u8dTgLcvZ5hMF3Y1hRqaHHOn3qJcLzK
+                7sWI4SBhniN9z+p2JAD37l1MvTCgyKo0KooWh1BmdW/uZ49OdPXgHpv57Wn828yc
+                O0P/dYPsedIiuoR/dVUdgnXTNH5+PMo8pc3m6dwlB/Sea/DCJxhPuI2A2W/Y5UQm
+                YBWUXEBVPKze/SvwwdZYYAI0lb8dWdsC8xt1+JLC2QKBgQDRFBK05Vyv0xP0lALj
+                GJeQaonqzl4PhCRJ49cJiQw81mjiXdjJtZLUJVrQfN2gs/2sb2oR37q932N2Bmey
+                mGCrFLj1xOELBIusQwBewMiUZa/VHu3kV8Lybf+KFp0D1p/GGEat9LTqO6oyIW/8
+                znodr4K5ar4QtaSWx85Gaxnj0wKBgQDQqYZ5D7nHqcZ7i+9r9LcgWQy/dyb+vnt6
+                p3pu/KzR6sKEtmyCSxgWbHN8FVy3Ie2mgDYALeUoCBFvEZAAPFiQe3XX095TMsSs
+                kNppsXrqP3BoBaa4i17Z3fQ7VstKB6J9jRs37VAVL89xviMJy3wttZSsL/1bFrXM
+                D53MEKZHqwKBgG7YPoarJvWMaYL8SX+OlSQaZ54V5KZDP13xLhs/Dj7eyWJhsMJX
+                wk04tKnd2T4OzslxlAF/5KgvW7LB+I4l3PI2nUynIUxPD6G3L+YMPQr30j2iFSs/
+                H/qZOKZEEOBtE+3ZBvfIyXV5RmUndxDHgtRkLWER50xCkMzjh0esFmDDAoGBAIOI
+                WZw2rYWPH+8BZwtGV6mseLy4/3vV10CaEjOkU8x/j97Yn84CSEzaUHIHhUpruMMc
+                Tu4OAEYbz+GT0JJVd/6b1M0YYS1Q82lUZln55uGC2/i2l0H9mOz9XNeK/trLtUIv
+                kNjQX4r7eGja0nt6Ke0maXGhTrP8vNzFe1MHq8nBAoGBAL4bi5KSHbNUuSY+TvfI
+                tXbEPLdumXab55iXG4nUBvSNTK6Lw0Z1WGlWtx84tJk9yVf59j0HQizMHjdMBFSK
+                3tfnvBOdermQkAYEHHX5y6PvvljNBLk+fR2u1oGNO2U1hRAVDMm/WKCewTOUIPH3
+                tHANFGw8RY9JjNeulMD/+GIm
+                -----END PRIVATE KEY-----
+
+              crt: |
+                -----BEGIN CERTIFICATE-----
+                MIIDVTCCAj2gAwIBAgIJAIvPHmyDYuk7MA0GCSqGSIb3DQEBCwUAMEExEzARBgNV
+                BAMMCmRvbWFpbi5jb20xHTAbBgNVBAoMFE15IENvbXBhbnkgTmFtZSBMVEQuMQsw
+                CQYDVQQGEwJVUzAeFw0xNjExMDkyMDQyNTRaFw0xNzExMDkyMDQyNTRaMEExEzAR
+                BgNVBAMMCmRvbWFpbi5jb20xHTAbBgNVBAoMFE15IENvbXBhbnkgTmFtZSBMVEQu
+                MQswCQYDVQQGEwJVUzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKpq
+                w0a05ihF4HYPU71yGVhtgggL0kvBlKog1G9TAGa2i67jUUtPcmZhzca8mUZmXoF3
+                yiudi+N4ZckISe413Kz4Ww66EvqsWaqvFpSEfa8lz1gzv9/AMZcTzm6dOUu7J9ND
+                RocRg/ayGoSHTRlJt7dP7rB+BjWMkzwl7I4+VefxkaxcrjOcUqrjwR5Rp0Cxeydi
+                VtuJoKarBTOqj3KbtjjGGalwyLE3QhSzUNvo0WX87Uo7UuqnUWapz0rXQVy6vF1V
+                cXX2cqJTFXFYAoEQSAhV7DvtfN7Aa5yBrhXcXk9VfWELdk/5J6vCnt7slXm9cYwH
+                ogADxetCAL5U6KNMsvECAwEAAaNQME4wHQYDVR0OBBYEFKdPdio/05XopJzPq0aF
+                f3MjDq5qMB8GA1UdIwQYMBaAFKdPdio/05XopJzPq0aFf3MjDq5qMAwGA1UdEwQF
+                MAMBAf8wDQYJKoZIhvcNAQELBQADggEBACBudRlZqDheAey/I3BDGTDW9CJNIb02
+                Ax+Yt0Q/+Z5klGY7C9SCni6yiEvU2WcxAjb7rOQf6U5O8k8waVqMhDlQzctRWlyy
+                uh5t1ND7Hpjj6WcP7q0euV/E1vzkws+QH4vaFRSi98wmOaIrFT6KF/oti5U2+zq0
+                44LM9HdKFVVWhv9W7nOn9MVouFl5SYBAftEfDGImjCle0JnXUUj5+FjAZBCUlRy0
+                SiMhXRYrbp1fs0KygZpyMa1O7QAttOBD3uFyrtYp4OM6t3ugEtIEI6WAmJFYEtgF
+                NEOhpJZqgLFXOe6eKuHzsc0+oqmda7ZbzrmLudo2gBm4QYtc6EwceWA=
+                -----END CERTIFICATE-----
+
+
+      grains:
+        roles:
+          - xbt-syslog
