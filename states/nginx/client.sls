@@ -3,7 +3,11 @@
 /etc/nginx/ssl/ca.crt:
   file:
     - managed
+{% if nginx.config.ssl.ca is defined %}
+    - contents_pillar: nginx:config:ssl:ca
+{% else %}
     - source: salt://xbthq/files/xbthq.root.crt
+{% endif %}
     - mode: 0600
 
 
