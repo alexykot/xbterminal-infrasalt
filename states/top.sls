@@ -10,6 +10,9 @@ base:
     - chrony.config
   'xbt-repo':
     - xbtrepo
+  'G@roles:xbtsam':
+    - xbtsam
+    - mongodb
   'G@roles:xbt-syslog':
     - xbtsyslog
   'G@roles:xbt-sentry':
