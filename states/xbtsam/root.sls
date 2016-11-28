@@ -7,6 +7,8 @@ git_root:
     - user: root
 {% if xbtsam.file_root.key != 'nokey' %}
     - identity: {{ xbtsam.file_root.key_path }}
+    - require:
+      - file: git_key
 
 
 git_key:
@@ -17,5 +19,5 @@ git_key:
     - user: root
     - group: root
     - makedirs: True
-    - contents_pillar: xbtsam:file_root.key
+    - contents_pillar: xbtsam:file_root:key
 {% endif %}
