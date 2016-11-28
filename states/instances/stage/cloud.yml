@@ -14,7 +14,7 @@ aws:
       SecurityGroupId: [ 'sg-8aeba5ee' ]
       Subnet24: 172.90.100
     sam:
-      name: 'xbt-sam'
+      name: 'xbt-stage-sam'
       count: 1
       size: t2.nano
       volumes: []
