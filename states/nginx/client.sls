@@ -14,5 +14,5 @@
 /etc/nginx/{{ nginx.config.ssl.domain  }}.client.conf:
   file:
     - managed
-    - source: salt://sentry/files/nginx.client.conf
+    - source: salt://nginx/files/nginx.client.conf
     - mode: 0600
