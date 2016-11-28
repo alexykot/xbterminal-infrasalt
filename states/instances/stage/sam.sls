@@ -22,18 +22,17 @@
     - minion: { 'grains': { 'roles': [ 'xbtsam' ] } }
 
 
-{{ i.name }}-0{{ noma }} - highstate:
+{{ sam.name }}-0{{ noma }} - highstate:
   salt.state:
-    - tgt: {{ i.name }}-0{{ noma }}
+    - tgt: {{ sam.name }}-0{{ noma }}
     - highstate: True
     - require:
-      - cloud: {{ i.name }}-0{{ noma }}
-      - salt: {{ i.name }}-0{{ noma }} set grains
-
-{{ i.name }}-{{ zone.id }}-0{{ noma }}.{{ cloud.env }}.xbthq.int:
+      - cloud: {{ sam.name }}-0{{ noma }}
+      
+{{ sam.name }}-0{{ noma }}.xbthq.int:
   boto_route53.present:
-    - value: {{ zone.Subnet24 }}{{ noma }}
-    - zone: {{ cloud.env }}
+    - value: {{ sam.Subnet24 }}.3{{ noma }}
+    - zone: xbthq.int
     - ttl: 60
     - record_type: A
     - region: eu-west-1
