@@ -51,6 +51,7 @@ xbtsam:
     path: /srv/salt/xbterminal-salt/
 
   config:
+    transport: tcp
     fileserver_backend:
       - git
     gitfs_provider: gitpython
