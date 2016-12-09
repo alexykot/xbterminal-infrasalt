@@ -1,0 +1,7 @@
+{% import_yaml "xbtsam/defaults.yaml" as default_settings %}
+
+{% set xbtsam = salt['pillar.get'](
+    'xbtsam',
+    default=default_settings.xbtsam,
+    merge=True)
+%}

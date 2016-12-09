@@ -62,6 +62,11 @@ base:
     - xbt.zabbix
     - xbt.nginx
     - xbt.discovery
+  xbt-stage-sam-01:
+    - xbt-stage.sam
+    - xbt.users
+    - xbt.openssh
+    - xbt.zabbix    
   xbt-salt-master-01:
     - xbt.users
     - xbt.openssh

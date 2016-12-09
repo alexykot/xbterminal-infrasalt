@@ -1,3 +1,4 @@
+env: stage
 aws:
   ami: 'ami-e31a6594'
   del_all_vols_on_destroy: False
@@ -9,6 +10,14 @@ aws:
       count: 1
       size: t2.nano
       volumes: [ { size: 10, device: /dev/sdh } ]
+      SubnetId: subnet-f3f7e596
+      SecurityGroupId: [ 'sg-8aeba5ee' ]
+      Subnet24: 172.90.100
+    sam:
+      name: 'xbt-stage-sam'
+      count: 1
+      size: t2.nano
+      volumes: []
       SubnetId: subnet-f3f7e596
       SecurityGroupId: [ 'sg-8aeba5ee' ]
       Subnet24: 172.90.100

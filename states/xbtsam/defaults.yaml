@@ -1,0 +1,60 @@
+xbtsam:
+  release: '2016.3'
+  version: '2016.3.4+ds-1'
+  api:
+    domain: 'sam.xbthq.co.uk'
+  file_root:
+    git_uri: git@bitbucket.org:xbterminal/xbterminal-salt.git
+    key: 'nokey'
+    key_path: '/root/.ssh/id_rsa.salt'
+    path: /srv/salt/xbterminal-salt/
+
+  config:
+    fileserver_backend:
+      - git
+    gitfs_provider: gitpython
+    gitfs_base: master
+    gitfs_remotes:
+      - file:///srv/salt/xbterminal-salt/:
+        - name: states
+        - root: states
+        - mountpoint: salt://
+        - base: master
+
+    rest_cherrypy:
+      port: 8000
+      host: 127.0.0.1
+      disable_ssl: True
+      thread_pool: 10
+      collect_stats: False
+      debug: True
+
+    external_auth:
+      pam:
+        salt-xbt-test:
+          - pkg.*
+          - test.*
+          - '@wheel'
+          - '@jobs'
+          - 'state.*'
+          - system.*
+          - grains.*
+
+    token_expire: 3600
+
+    log_level_logfile: debug
+
+    top_file_merging_strategy: same
+
+    reactor:
+      - 'xbt/terminal/highstate':
+        - salt://_reactors/savepillars.py
+      - 'salt/job/*/ret/*':
+        - salt://_reactors/savejid.py
+
+    ext_pillar:
+      - mongo: {collection: xbt_pillars, id_field: _id, fields: [xbt,jid]}
+
+    mongo.db: 'salt'
+    mongo.host: '127.0.0.1'
+    mongo.port: 27017

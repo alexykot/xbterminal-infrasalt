@@ -70,6 +70,7 @@ https://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.gpg.html
 * https://github.com/saltstack-formulas/timezone-formula
 * https://github.com/saltstack-formulas/php-formula
 * https://github.com/maratsh/systemd-formula
+* https://github.com/maratsh/mongodb-formula
 
 
 

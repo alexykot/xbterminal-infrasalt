@@ -11,6 +11,7 @@ gendhparam:
 /etc/nginx/ssl/:
   file:
     - directory
+    - makedirs: True
 
 
 /etc/nginx/{{ nginx.config.ssl.domain }}.ssl.conf:
@@ -40,4 +41,3 @@ gendhparam:
     - makedirs: true
     - contents_pillar: nginx:config:ssl:crt
     - show_changes: False
-    
