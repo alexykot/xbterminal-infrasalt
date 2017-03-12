@@ -36,6 +36,8 @@ sshd_config:
   KexAlgorithms: 'diffie-hellman-group14-sha1,diffie-hellman-group1-sha1'
   Ciphers: 'aes128-ctr,aes256-ctr'
   MACs: 'hmac-sha1'
+  ClientAliveInterval: 300
+  PermitUserEnvironment: 'no'
   matches:
     sftp_chroot:
       type:
@@ -52,4 +54,3 @@ openssh:
   generate_rsa_keys: True
   generate_ecdsa: True
   generate_dsa: True
-

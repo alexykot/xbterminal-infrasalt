@@ -36,9 +36,10 @@ sshd_config:
   KexAlgorithms: 'diffie-hellman-group14-sha1,diffie-hellman-group1-sha1'
   Ciphers: 'aes128-ctr,aes256-ctr'
   MACs: 'hmac-sha1'
+  ClientAliveInterval: 300
+  PermitUserEnvironment: 'no'
 openssh:
   generate_ed25519_keys: True
   generate_rsa_keys: True
   generate_ecdsa: True
   generate_dsa: True
-
