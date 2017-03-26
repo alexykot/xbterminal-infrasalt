@@ -1,5 +1,6 @@
 sshd_config:
   Port: 932
+  port: 22
   Protocol: 2
   HostKey:
     - /etc/ssh/ssh_host_rsa_key
@@ -30,7 +31,7 @@ sshd_config:
   AcceptEnv: "LANG LC_*"
   Subsystem: "sftp /usr/lib/openssh/sftp-server"
   UsePAM: 'yes'
-  UseDNS: 'yes'
+  UseDNS: 'no'
   AllowUsers: 'maratsh alexykot alexy kirill itl jenkins'
   # Check `man sshd_config` for supported KexAlgorithms, Ciphers and MACs first.
   KexAlgorithms: 'diffie-hellman-group14-sha1,diffie-hellman-group1-sha1'
@@ -39,6 +40,7 @@ sshd_config:
   ClientAliveInterval: 300
   PermitUserEnvironment: 'no'
   MaxAuthTries: 4
+  GSSAPIAuthentication: 'no'
   matches:
     sftp_chroot:
       type:
@@ -56,6 +58,7 @@ sshd_config:
         X11Forwarding: no
         ForceCommand: internal-sftp
         AllowTcpForwarding: no
+        AuthorizedKeysFile: '%h/.ssh/authorized_keys'
 
 
 openssh:
