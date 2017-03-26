@@ -28,6 +28,10 @@ CIS 9.2.1|CIS 9.2.3:
   file.managed:
     - name: /etc/pam.d/common-password
     - source: salt://xbtsafety/files/pam.d-common-password
+  pkg.installed:
+    - pkgs:
+      - libpam-pwquality
+      - libpam-cracklib
 
 CIS-10.4:
   file:
