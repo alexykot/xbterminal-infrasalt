@@ -1,6 +1,7 @@
 base:
   '*':
     - core
+    - xbtsafety
     - maratsh
     - openssh
     - openssh.config

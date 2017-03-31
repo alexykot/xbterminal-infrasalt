@@ -1,13 +1,16 @@
 core:
   pkg:
     - installed
+    - refresh: True
     - pkgs:
-      - sudo
-      - vim
+      - sudo: '1.8.10p3-1+deb8u3'
+      - vim:  '2:7.4.488-7+deb8u2'
       - rsync
       - screen
-      - tig
-      - curl
+      - git: '1:2.1.4-2.1+deb8u2'
+      - git-core: '1:2.1.4-2.1+deb8u2'
+      - git-man: '1:2.1.4-2.1+deb8u2'
+      - curl: '7.38.0-4+deb8u5'
       - man
       - mosh
       - htop
