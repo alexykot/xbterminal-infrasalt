@@ -1,0 +1,13 @@
+control:
+  - CIS-7.7: using aws security groups
+  - CIS-5.1.3: rsh is just symlink to ssh
+  - CIS-8.2.5: https://bitbucket.org/xbterminal/xbterminal-website/issues/122/
+  - CIS-9.3.13: using AllowUsers
+  - CIS-9.3.14: banner is not usefull
+  - CIS-6.5: ntp configured via chrony
+  - CIS-2.9: many partitions is not usefull for aws
+  - CIS-2.8: many partitions is not usefull for aws
+  - CIS-2.7: many partitions is not usefull for aws
+  - CIS-2.5: many partitions is not usefull for aws
+  - CIS-2.10: many partitions is not usefull for aws
+  - CIS-3.2: boot loader password is not  possible on aws
