@@ -4,7 +4,7 @@ core:
     - refresh: True
     - pkgs:
       - sudo: '1.8.10p3-1+deb8u3'
-      - vim:  '2:7.4.488-7+deb8u2'
+      - vim:  '2:7.4.488-7+deb8u3'
       - rsync
       - screen
       - git: '1:2.1.4-2.1+deb8u2'
