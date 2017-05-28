@@ -7,9 +7,9 @@ aws:
   roles:
 
     bitcoind:
-      name: 'xbt-bitcoincl'
+      name: 'xbt-bitcoin'
       count: 1
-      size: t2.small
+      size: t2.medium
       volumes: [ { size: 200, device: /dev/sdh } ]
       SubnetId: subnet-4ba49a3c #xbt-bitcoin-c
       SecurityGroupId: [ ' sg-5f93d23b' ] # xbt-bitcoin
