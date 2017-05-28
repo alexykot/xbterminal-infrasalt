@@ -9,6 +9,8 @@ provisioner:
   name: salt_solo
   is_file_root: true
   state_top_from_file: true
+  salt_version: 2016.3.6
+  salt_install: apt
   dependencies:
     - { path: '../formulas/systemd-formula', name: 'systemd' }
     - { path: '../formulas/openssh-formula', name: 'openssh' }
@@ -25,7 +27,6 @@ platforms:
 
 suites:
   - name: default
-    salt_version: 2016.3.3
     run_list:
     attributes:
 
@@ -43,7 +44,7 @@ suites:
         xbtsam.sls:
           xbtsam:
             release: '2016.3'
-            version: '2016.3.4+ds-1'
+            version: '2016.3.6+ds-1'
             api:
               domain: localhost
             file_root:
