@@ -39,6 +39,14 @@ syslog-ng-service:
     - context:
       xbtsyslog: {{ xbtsyslog }}
 
+/etc/logrotate.d/xbt:
+  file:
+    - managed
+    - source: salt://xbtsyslog/files/logrotate.conf
+    - mode: 0600 
+    - user: root
+    - group: root
+ 
 {% for file in [ 'crt', 'key' ] %}
 /etc/syslog-ng/key.d/{{ file }}.pem:
   file:
