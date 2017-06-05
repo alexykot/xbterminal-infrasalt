@@ -88,7 +88,7 @@ xbt:
       unit:
         - Description = xbterminal-rqworker-high
       service:
-        - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqworker high
+        - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqworker high --worker-class rq.SimpleWorker
         - Restart=no
         - LimitNOFILE=8192
         - User=xbt-app
@@ -101,7 +101,7 @@ xbt:
       unit:
         - Description = xbterminal-rqworker-low
       service:
-        - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqworker low
+        - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py rqworker low --worker-class rq.SimpleWorker
         - Restart=no
         - LimitNOFILE=8192
         - User=xbt-app
