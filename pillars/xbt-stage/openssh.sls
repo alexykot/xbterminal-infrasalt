@@ -27,6 +27,7 @@ sshd_config:
   PrintMotd: 'no'
   PrintLastLog: 'yes'
   TCPKeepAlive: 'yes'
+  ClientAliveCountMax: 0
   AcceptEnv: "LANG LC_*"
   Subsystem: "sftp /usr/lib/openssh/sftp-server"
   UsePAM: 'yes'
