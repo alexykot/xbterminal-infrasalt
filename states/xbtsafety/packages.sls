@@ -73,3 +73,6 @@ safety_pkg:
       - linux-headers-3.16.0-4-common: '3.16.43-2'
 
       - librtmp1: '2.4+20150115.gita107cef-1+deb8u1'
+
+      - isc-dhcp-client: '4.3.1-6+deb8u2'
+      - isc-dhcp-common: '4.3.1-6+deb8u2'
