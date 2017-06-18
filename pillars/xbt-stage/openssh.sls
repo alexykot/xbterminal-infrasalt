@@ -31,14 +31,20 @@ sshd_config:
   AcceptEnv: "LANG LC_*"
   Subsystem: "sftp /usr/lib/openssh/sftp-server"
   UsePAM: 'yes'
-  UseDNS: 'yes'
-  AllowUsers: 'maratsh alexykot kirill'
+  UseDNS: 'no'
+  AllowUsers: 'maratsh alexykot alexy kirill'
   # Check `man sshd_config` for supported KexAlgorithms, Ciphers and MACs first.
   KexAlgorithms: 'diffie-hellman-group14-sha1,diffie-hellman-group1-sha1'
-  Ciphers: 'aes128-ctr,aes256-ctr'
+  Ciphers: 'aes128-ctr,aes192-ctr,aes256-ctr'
   MACs: 'hmac-sha1'
+  ClientAliveInterval: 300
+  PermitUserEnvironment: 'no'
+  MaxAuthTries: 4
+  GSSAPIAuthentication: 'no'
+
 openssh:
   generate_ed25519_keys: True
   generate_rsa_keys: True
   generate_ecdsa: True
   generate_dsa: True
+  sshd_config_mode: 0600
