@@ -1,3 +1,10 @@
+unrelated-packeges:
+  pkg:
+    - removed
+    - pkgs:
+      - exim4-base
+      - exim4-config
+
 safety_pkg:
   pkg:
     - installed
@@ -76,3 +83,5 @@ safety_pkg:
 
       - isc-dhcp-client: '4.3.1-6+deb8u2'
       - isc-dhcp-common: '4.3.1-6+deb8u2'
+
+      - libnss3-tools: '2:3.26-1+debu8u2'
