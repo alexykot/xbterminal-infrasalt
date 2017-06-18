@@ -18,6 +18,7 @@ CIS-8.1.2|CIS-8.1.1.3:
     - name: /etc/audit/auditd.conf
     - source: salt://xbtsafety/files/auditd.conf
     - mode: 0640
+    - require: [ pkg: auditd ]
   service.running:
     - name: auditd
     - enable: true
