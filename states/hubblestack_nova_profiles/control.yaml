@@ -1,13 +1,39 @@
 control:
-  - CIS-7.7: using aws security groups
+
+
+  - CIS-2.1: many partitions is not usefull for aws
+  - CIS-2.2: many partitions is not usefull for aws
+  - CIS-2.3: many partitions is not usefull for aws
+  - CIS-2.4: many partitions is not usefull for aws
+  - CIS-2.5: many partitions is not usefull for aws
+  - CIS-2.6: many partitions is not usefull for aws
+  - CIS-2.7: many partitions is not usefull for aws
+  - CIS-2.8: many partitions is not usefull for aws
+  - CIS-2.9: many partitions is not usefull for aws
+  - CIS-2.10: many partitions is not usefull for aws
+
+  - CIS-3.2: boot loader password is not  possible on aws
+
   - CIS-5.1.3: rsh is just symlink to ssh
+  - CIS-5.1.6: telnet server is not available
+
+  - CIS-6.15: we have not local  MTA
+  - CIS-6.5: ntp configured via chrony
+
+    CIS-7.1.2: https://github.com/hubblestack/hubble-salt/issues/77
+  - CIS-7.2.3: https://github.com/hubblestack/hubble-salt/issues/77
+  - CIS-7.2.4: https://github.com/hubblestack/hubble-salt/issues/77
+  - CIS-7.2.7: https://github.com/hubblestack/hubble-salt/issues/77
+
+  - CIS-7.4.1:  we are using aws security groups
+  - CIS-7.7: we are using aws security groups
+
+
+  - CIS-8.2.1: https://bitbucket.org/xbterminal/xbterminal-website/issues/122/
   - CIS-8.2.5: https://bitbucket.org/xbterminal/xbterminal-website/issues/122/
+
+  - CIS-9.3.11: fixed
   - CIS-9.3.13: using AllowUsers
   - CIS-9.3.14: banner is not usefull
-  - CIS-6.5: ntp configured via chrony
-  - CIS-2.9: many partitions is not usefull for aws
-  - CIS-2.8: many partitions is not usefull for aws
-  - CIS-2.7: many partitions is not usefull for aws
-  - CIS-2.5: many partitions is not usefull for aws
-  - CIS-2.10: many partitions is not usefull for aws
-  - CIS-3.2: boot loader password is not  possible on aws
+  - CIS-10.4: false positive, fixed by states
+  - CIS-8.3.1: too hard too maintain

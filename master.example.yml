@@ -54,6 +54,10 @@ gitfs_remotes:
     - root: systemd
     - mountpoint: salt://systemd
     - base: master
+    
+  - https://github.com/hubblestack/hubble-salt.git:
+    - base: v2017.4.1
+    - root: ''
 
 
 file_roots:
@@ -69,7 +73,7 @@ ext_pillar:
     - master git@bitbucket.org:xbterminal/xbterminal-infrasalt.git:
       - root: pillars
       - env: base
-      
+
 pillar_roots:
   base:
     - /srv/salt/pillars/base/

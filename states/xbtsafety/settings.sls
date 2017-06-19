@@ -10,13 +10,21 @@ CIS-2.16|CIS-2.14|CIS-2.15:
     - mkmnt: True
 
 
-CIS-8.1.2:
+CIS-8.1.2|CIS-8.1.1.3:
   pkg.installed:
     - name: auditd
+  file:
+    - managed
+    - name: /etc/audit/auditd.conf
+    - source: salt://xbtsafety/files/auditd.conf
+    - mode: 0640
+    - require: [ pkg: auditd ]
   service.running:
     - name: auditd
     - enable: true
-
+  watch:
+    - file: /etc/audit/auditd.conf
+    - pkg: auditd
 
 CIS-10.1.1|CIS-10.1.2:
   file.managed:

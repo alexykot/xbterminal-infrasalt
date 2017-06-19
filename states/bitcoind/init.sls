@@ -41,3 +41,12 @@ bitcoind:
     - version: '0.13.1-0.1'
     - require:
       - file: /etc/apt/sources.list.d/xbterminal-backend.list
+
+
+libevent:
+  pkg:
+    - installed
+    - pkgs:
+      - libevent-2.0-5: '2.0.21-stable-2+deb8u1'
+      - libevent-core-2.0-5:  '2.0.21-stable-2+deb8u1'
+      - libevent-pthreads-2.0-5: '2.0.21-stable-2+deb8u1'
