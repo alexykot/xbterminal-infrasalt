@@ -39,14 +39,28 @@ syslog-ng-service:
     - context:
       xbtsyslog: {{ xbtsyslog }}
 
+/etc/syslog-ng/conf.d/infra.conf:
+  file:
+    - managed
+    - source: salt://xbtsyslog/files/infra.conf
+    - mode: 0600
+    - user: root
+    - group: root
+    - template: jinja
+    - context:
+      xbtsyslog: {{ xbtsyslog }}
+
 /etc/logrotate.d/xbt:
   file:
     - managed
     - source: salt://xbtsyslog/files/logrotate.conf
-    - mode: 0600 
+    - mode: 0600
     - user: root
     - group: root
- 
+    - template: jinja
+      context:
+        xbtsyslog: {{ xbtsyslog }}
+
 {% for file in [ 'crt', 'key' ] %}
 /etc/syslog-ng/key.d/{{ file }}.pem:
   file:

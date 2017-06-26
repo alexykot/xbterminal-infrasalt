@@ -9,6 +9,7 @@ base:
     - hostname
     - zabbix.agent
     - chrony.config
+    - xbtsyslog.collector
   'xbt-repo':
     - xbtrepo
   'G@roles:xbtsam':

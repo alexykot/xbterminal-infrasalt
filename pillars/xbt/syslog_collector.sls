@@ -1,7 +1,4 @@
 xbtsyslog:
-  blockdev: /dev/sdb
-  dir: /var/log/xbterminal
-
   collector:
     host: logs.xbthq.int
     port: 6128
