@@ -5,6 +5,15 @@ unrelated-packeges:
       - exim4-base
       - exim4-config
 
+kernel:
+  pkg:
+    - installed
+    - refresh: True
+    - pkgs:
+      - linux-image-3.16.0-4-amd64: '3.16.43-2+deb8u1'
+      - linux-headers-3.16.0-4-common: '3.16.43-2+deb8u1'
+
+
 safety_pkg:
   pkg:
     - installed
@@ -60,13 +69,13 @@ safety_pkg:
       - libcurl3: '7.38.0-4+deb8u5'
       - gpgv: '1.4.18-7+deb8u3'
       - gnupg: '1.4.18-7+deb8u3'
-      - libc6: '2.19-18+deb8u9'
-      - libc-bin: '2.19-18+deb8u9'
+      - libc6: '2.19-18+deb8u10'
+      - libc-bin: '2.19-18+deb8u10'
       - libgssapi-krb5-2: '1.12.1+dfsg-19+deb8u2'
       - libkrb5-3: '1.12.1+dfsg-19+deb8u2'
       - libcurl3-gnutls: '7.38.0-4+deb8u5'
       - libicu52: '52.1-8+deb8u5'
-      - locales: '2.19-18+deb8u9'
+      - locales: '2.19-18+deb8u10'
       - libpng12-0: '1.2.50-2+deb8u3'
       - cpio: '2.11+dfsg-4.1+deb8u1'
       - libisc-export95: '1:9.9.5.dfsg-9+deb8u11'
@@ -76,8 +85,6 @@ safety_pkg:
       - mysql-common: '5.5.55-0+deb8u1'
       - libmysqlclient18: '5.5.55-0+deb8u1'
 
-      - linux-compiler-gcc-4.8-x86: '3.16.43-2'
-      - linux-headers-3.16.0-4-common: '3.16.43-2'
 
       - librtmp1: '2.4+20150115.gita107cef-1+deb8u1'
 
@@ -85,3 +92,6 @@ safety_pkg:
       - isc-dhcp-common: '4.3.1-6+deb8u2'
 
       - libnss3-tools: '2:3.26-1+debu8u2'
+      - libffi6: '3.1-2+deb8u1'
+
+      - multiarch-support: '2.19-18+deb8u10'
