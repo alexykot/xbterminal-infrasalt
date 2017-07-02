@@ -62,7 +62,7 @@ safety_pkg:
       - libtasn1-6: '4.2-3+deb8u3'
       - tar: '1.27.1-2+deb8u1'
       - multiarch-support: '2.19-18+deb8u9'
-      - libexpat1: '2.1.0-6+deb8u3'
+      - libexpat1: '2.1.0-6+deb8u4'
       - libfuse2: '2.9.3-15+deb8u2'
       - openssl: '1.0.1t-1+deb8u6'
       - libssl1.0.0: '1.0.1t-1+deb8u6'
