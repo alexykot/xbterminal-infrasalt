@@ -121,25 +121,11 @@ xbt:
         - WantedBy=multi-user.target
       immediate_restart: True
 
-    - name: xbterminal-cryptopay_sync
-      unit:
-        - Description = xbterminal-cryptopay_sync
-      service:
-        - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py cryptopay_sync
-        - Restart=no
-        - LimitNOFILE=8192
-        - User=xbt-app
-      install: []
-      timer:
-        - OnUnitInactiveSec=30m
-      timer_install:
-        - WantedBy=multi-user.target
-
     -  name: xbterminal-check_wallet
        unit:
          - Description = xbterminal-check_wallet
        service:
-         - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py check_wallet
+         - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py check_wallet mainnet
          - Restart=no
          - LimitNOFILE=8192
          - User=xbt-app
