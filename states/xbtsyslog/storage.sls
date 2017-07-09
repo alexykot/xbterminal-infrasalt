@@ -26,8 +26,8 @@ directory-storage:
     - name: {{ xbtsyslog.dir }}
     - user: root
     - group: root
-    - dir_mode:  750
-    - file_mode: 644
+    - dir_mode:  0750
+    - file_mode: 0644
     - require:
       - mount: mount-storage
     - recurse:

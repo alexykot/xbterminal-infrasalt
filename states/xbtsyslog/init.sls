@@ -2,12 +2,15 @@
 
 include:
   - xbtsyslog.storage
+  - xbtsyslog.repo
 
 syslog-ng-package:
   pkg:
     - installed
-    - version: '3.5.6-2'
+    - version: '3.10.1-1'
     - name: syslog-ng
+    - require:
+      - pkgrepo: syslog-ng-repo
 
 
 syslog-ng-service:
