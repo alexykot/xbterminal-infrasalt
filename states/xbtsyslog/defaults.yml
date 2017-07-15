@@ -2,6 +2,9 @@ xbtsyslog:
   blockdev: /dev/sdb
   dir: /var/log/xbterminal
 
+  sentry:
+    DSN: 'http://id:key@host/porject_id'
+
   collector:
     host: logs.xbthq.int
     port: 6128
