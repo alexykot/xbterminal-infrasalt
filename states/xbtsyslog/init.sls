@@ -3,6 +3,7 @@
 include:
   - xbtsyslog.storage
   - xbtsyslog.repo
+  - xbtsyslog.sentry
 
 syslog-ng-package:
   pkg:
@@ -52,6 +53,15 @@ syslog-ng-service:
     - template: jinja
     - context:
       xbtsyslog: {{ xbtsyslog }}
+
+/etc/sysconfig/syslog-ng:
+  file:
+    - managed
+    - mode: 0600
+    - user: root
+    - group: root
+    - contents:
+      - "PYTHONPATH=$PYTHONPATH:/usr/local/share/syslog-ng/python/"
 
 /etc/logrotate.d/xbt:
   file:

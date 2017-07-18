@@ -3,6 +3,10 @@
 xbtsyslog:
   blockdev: /dev/xvdh
   dir: /var/log/xbterminal
+
+  sentry:
+    DSN: 'http://244ece2efd964cd6b5e313bafa188bc0:c7cd4ecf36854400aaf5210ac122a3d6@sentry.xbthq.int/11'
+
   tls:
     key : |
       -----BEGIN PGP MESSAGE-----
