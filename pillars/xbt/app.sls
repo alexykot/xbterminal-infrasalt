@@ -240,7 +240,7 @@ xbt:
       SESSION_COOKIE_SECURE: True
       CSRF_COOKIE_SECURE: True
 
-      PKI_KEY_FILE: 'bip70/bip70.key'
+      PKI_KEY_FILE: 'bip70/bip70.key.pem'
       PKI_CERTIFICATES:
         - 'bip70/bip70.crt.pem'
         - 'bip70/AddTrustExternalCARoot.pem'
