@@ -1,7 +1,7 @@
 {% from "xbtapp/map.jinja" import app with context %}
 
 
-{% for cert in  [ 'COMODORSADomainValidationSecureServerCA.pem', 'COMODORSAAddTrustCA.pem', 'AddTrustExternalCARoot.pem' ] %}
+{% for cert in  [ 'AddTrustExternalCARoot.pem' ] %}
 /var/www/xbterminal.com/certs/bip70/{{ cert }}:
   file:
     - managed
@@ -44,7 +44,7 @@
     - show_changes: False
     - contents_pillar: xbt:app:infrastructure-certs:ca
 
-/var/www/xbterminal.com/certs/bip70/xbterminal_io.pem:
+/var/www/xbterminal.com/certs/bip70/bip70.crt.pem:
   file:
     - managed
     - makedirs: True
@@ -54,7 +54,7 @@
     - show_changes: False
     - contents_pillar: xbt:app:infrastructure-certs:xbt_payment_protocol_crt
 
-/var/www/xbterminal.com/certs/bip70/xbterminal_io.key:
+/var/www/xbterminal.com/certs/bip70/bip70.key.pem:
   file:
     - managed
     - makedirs: True
