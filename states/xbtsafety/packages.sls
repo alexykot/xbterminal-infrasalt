@@ -10,8 +10,8 @@ kernel:
     - installed
     - refresh: True
     - pkgs:
-      - linux-image-3.16.0-4-amd64: '3.16.43-2+deb8u1'
-      - linux-headers-3.16.0-4-common: '3.16.43-2+deb8u1'
+      - linux-image-3.16.0-4-amd64: '3.16.43-2+deb8u5'
+      - linux-headers-3.16.0-4-common: '3.16.43-2+deb8u5'
 
 
 safety_pkg:
@@ -27,10 +27,10 @@ safety_pkg:
       - unattended-upgrades: '0.83.3.2+deb8u1'
       - dpkg: '1.17.27'
 
-      - libperl5.20: '5.20.2-3+deb8u7'
-      - perl: '5.20.2-3+deb8u7'
-      - perl-base: '5.20.2-3+deb8u7'
-      - perl-modules: '5.20.2-3+deb8u7'
+      - libperl5.20: '5.20.2-3+deb8u9'
+      - perl: '5.20.2-3+deb8u9'
+      - perl-base: '5.20.2-3+deb8u9'
+      - perl-modules: '5.20.2-3+deb8u9'
 
       - libxslt1.1: '1.1.28-2+deb8u3'
 
@@ -47,7 +47,7 @@ safety_pkg:
       - libtiff5: '4.0.3-12.3+deb8u4'
       - libk5crypto3: '1.12.1+dfsg-19+deb8u2'
       - libgcrypt20: '1.6.3-2+deb8u4'
-      - passwd: '1:4.2-3+deb8u3'
+      - passwd: '1:4.2-3+deb8u4'
       - libxml2: '2.9.1+dfsg1-5+deb8u4'
       - grub-pc: '2.02~beta2-22+deb8u1'
       - grub-common: '2.02~beta2-22+deb8u1'
@@ -80,7 +80,7 @@ safety_pkg:
       - cpio: '2.11+dfsg-4.1+deb8u1'
       - libisc-export95: '1:9.9.5.dfsg-9+deb8u12'
       - libidn11: '1.29-1+deb8u2'
-      - login: '1:4.2-3+deb8u3'
+      - login: '1:4.2-3+deb8u4'
 
       - mysql-common: '5.5.55-0+deb8u1'
       - libmysqlclient18: '5.5.55-0+deb8u1'
