@@ -1,0 +1,17 @@
+[Unit]
+Description=Bitcoin daemon service
+After=network.target
+
+[Service]
+Type=simple
+User=bitcoind
+ExecStart=/usr/local/sbin/bitcoind -conf=/etc/bitcoin/bitcoind.conf
+Restart=always
+
+ExecStartPre=/bin/bash /var/bitcoind/shaper.sh start
+PermissionsStartOnly=True
+
+ExecStop=/usr/local/sbin/bitcoin-cli --conf=/etc/bitcoin/bitcoind.conf stop
+
+[Install]
+WantedBy=multi-user.target
