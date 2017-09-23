@@ -49,3 +49,11 @@ base:
     - users
     - hostname
     - bitcoind
+  'G@roles:xbtbitcoin':
+    - core
+    - maratsh
+    - openssh
+    - openssh.config
+    - users
+    - hostname
+    - bitcoind-abc
