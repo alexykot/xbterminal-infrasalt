@@ -6,7 +6,8 @@ After=network.target
 Type=simple
 User=bitcoind
 ExecStart=/usr/local/sbin/bitcoind -conf=/etc/bitcoin/bitcoind.conf
-Restart=always
+Restart=on-failure
+RestartSec=10s
 
 ExecStartPre=/bin/bash /var/bitcoind/shaper.sh start
 PermissionsStartOnly=True

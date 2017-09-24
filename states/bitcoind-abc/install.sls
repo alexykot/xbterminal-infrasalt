@@ -6,10 +6,10 @@ bitcoind_abc_distro:
     - extracted
     - source: https://download.bitcoinabc.org/{{ bd.version}}/linux/bitcoin-abc-{{ bd.version }}-x86_64-linux-gnu.tar.gz
     - source_hash: {{ bd.hash }}
-    - keep_source: True
+    - keep: True
     - name: /opt/bitcoind/
-    - if_missing: /opt/bitcoind/itcoin-abc-{{ bd.version }}
-
+    - if_missing: /opt/bitcoind/bitcoin-abc-{{ bd.version }}
+    - archive_format: tar
 
 {% for binary in  ['bitcoin-cli' , 'bitcoind', 'bitcoin-qt', 'bitcoin-tx', 'test_bitcoin' ] %}
 

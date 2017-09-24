@@ -26,3 +26,8 @@ blockchain-dir:
   file:
     - directory
     - name: {{ bd.config.datadir }}
+    - user: bitcoind
+    - group: bitcoind
+    - recurse:
+      - user
+      - group
