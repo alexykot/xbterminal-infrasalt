@@ -15,12 +15,16 @@ bitcoind_abc:
     datadir: /var/bitcoind/
     rpcuser: test
     rpcpassword: 123
-    rpcallowip: 0.0.0.0
-    rpcthreads: 10
+    rpcthreads: 1
     txindex: 1
     logips: 1
     printtoconsole: 1
     maxtxfee: 0.2
+    maxmempool: 200
+    mempoolexpiry: 1
+    rpcallowip: 0.0.0.0/0
+    keypool=10
+
 
 bitcoind:
   net: testnet
