@@ -82,8 +82,8 @@ safety_pkg:
       - libidn11: '1.29-1+deb8u2'
       - login: '1:4.2-3+deb8u4'
 
-      - mysql-common: '5.5.55-0+deb8u1'
-      - libmysqlclient18: '5.5.55-0+deb8u1'
+      - mysql-common: '5.5.57-0+deb8u1'
+      - libmysqlclient18: '5.5.57-0+deb8u1'
 
 
       - librtmp1: '2.4+20150115.gita107cef-1+deb8u1'
