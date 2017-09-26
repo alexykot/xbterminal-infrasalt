@@ -28,12 +28,12 @@ base:
     - xbt.openssh
     - xbt.users
     - xbt.discovery
-  xbt-bitcoin-01:
+  xbt-bitcoin-0*:
     - xbt.openssh
     - xbt.users
     - xbt.bitcoind
     - xbt.discovery
-  xbt-stage-bitcoin-01:
+  xbt-stage-bitcoin-*:
     - xbt-stage.openssh
     - xbt-stage.users
     - xbt-stage.bitcoind

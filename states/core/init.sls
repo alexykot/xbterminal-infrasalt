@@ -3,7 +3,7 @@ debian-release:
     - installed
     - refresh: True
     - name: base-files
-    - version: 8+deb8u8
+    - version: 8+deb8u9
     - order: 1
 
 core:
@@ -13,7 +13,7 @@ core:
     - order: 2
     - require: [ pkg: debian-release ]
     - pkgs:
-      - sudo: '1.8.10p3-1+deb8u3'
+      - sudo: '1.8.10p3-1+deb8u4'
       - vim:  '2:7.4.488-7+deb8u3'
       - rsync
       - screen

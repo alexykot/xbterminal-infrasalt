@@ -1,0 +1,7 @@
+{% import_yaml "bitcoind-abc/defaults.yml" as default_settings %}
+
+{% set bitcoind_abc = salt['pillar.get'](
+    'bitcoind_abc',
+    default=default_settings.bitcoind_abc,
+    merge=True)
+%}
