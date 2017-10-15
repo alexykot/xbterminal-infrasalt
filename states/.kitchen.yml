@@ -1,6 +1,6 @@
 ---
-transport:
-  name: rsync
+#transport:
+#  name: rsync
 
 driver:
   name: vagrant
@@ -19,6 +19,9 @@ provisioner:
     - { path: '../formulas/users-formula', name: 'users' }
     - { path: '../formulas/chrony-formula', name: 'chrony' }
     - { path: '../formulas/mongodb-formula', name: 'mongodb' }
+    - name: users
+      repo: git
+      source: https://github.com/saltstack-formulas/users-formula
 
 
 platforms:
