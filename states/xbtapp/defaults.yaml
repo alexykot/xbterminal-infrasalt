@@ -37,13 +37,15 @@ xbt:
           HOST: '172.90.204.11'
           PORT: 5432
 
-      BITCOIND_SERVERS:
-        mainnet:
+      BLOCKCHAINS:
+        BTC:
           HOST: 54.229.125.109
+          PORT: 8332
           USER: xbterminal
           PASSWORD: 'xyz'
-        testnet:
+        TBTC:
           HOST: node.xbterminal.io
+          PORT: 18332
           USER: user
           PASSWORD: password
 

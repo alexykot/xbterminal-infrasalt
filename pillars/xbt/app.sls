@@ -267,9 +267,10 @@ xbt:
           HOST: 'xbt-rds-postgresql.c0xtylrva8fh.eu-west-1.rds.amazonaws.com'
           PORT: 5432
 
-      BITCOIND_SERVERS:
-        mainnet:
+      BLOCKCHAINS:
+        BTC:
           HOST: node.xbterminal.io
+          PORT: 8332
           USER: xbterminal
           PASSWORD: |
             -----BEGIN PGP MESSAGE-----
@@ -287,8 +288,9 @@ xbt:
             -----END PGP MESSAGE-----
 
           USE_SSL: False
-        testnet:
+        TBTC:
           HOST: node.xbterminal.io
+          PORT: 18332
           USER: user
           PASSWORD: password
 
