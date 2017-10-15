@@ -125,7 +125,7 @@ xbt:
        unit:
          - Description = xbterminal-check_wallet
        service:
-         - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py check_wallet mainnet
+         - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py check_wallet BTC
          - Restart=no
          - LimitNOFILE=8192
          - User=xbt-app
