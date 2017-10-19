@@ -297,7 +297,19 @@ xbt:
           HOST: 172.90.203.253
           PORT: 9998
           USER: xbterminal
-          PASSWORD: password
+          PASSWORD: |
+            -----BEGIN PGP MESSAGE-----
+            
+            hQELA/XI2iCydQqJAQf1E5NE4UHraUl/keuatvlW25iNqsKDm2naCJCb/4ige4YD
+            /ahuv8sXhXvuxCl8jEluxo1i0r8a5iCC5Bud47BcZ26VIZM6K+h8bXhD3+O/ut2b
+            I24OVY46HaqUxldxGBqlFdm6E1h2sOFjNI+JsN37LwfqAUs3GD+jMbAAIOnDzc3R
+            zaSzfDZPkhN2J08qnVLect/1rJBDbVd7yzDHCUkWk7lTLbheYjfqLuSxIpsR5VJV
+            NokCkUvNJ0TlzHMJjlwD3uXnGqqwNy3zmRm2SWK/D+C1DKf+aAd7Kx7Ewpj2f4sK
+            F4s6XKOe8EsMr4mHodMjsFL4251zLqNRXCyhnRqK0kwBeZg3aQhX7uP4C7Dv+duy
+            0kSO8UZ/uU/8nah9L7HPqAFm++exksWKxbmz64w+rXyORMD5cShcvV1lMZlVB+g4
+            GB77GXU+9Uh4GmY4
+            =BGeO
+            -----END PGP MESSAGE-----
 
       SALT_SERVERS:
         default:
