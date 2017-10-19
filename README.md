@@ -33,7 +33,7 @@ All secrets(passwords, private keys) in pillars should be encrypted.
 * Install gpg
 * Install public key ```gpg --import xbterminal-infrasalt/xbtip.pub```
 * Encrypt pillar values with gpg:
-```echo -n "supersecret" | gpg —armor —batch —trust-model always —encrypt -r xbtip```
+```echo -n "supersecret" | gpg --armor --batch --trust-model always --encrypt -r xbtip```
 * Add special pillar renderer on top of pillar file ```#!yaml|gpg```
 * Set pillar value to gpg message:
 
