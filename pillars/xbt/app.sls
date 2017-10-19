@@ -293,6 +293,11 @@ xbt:
           PORT: 18332
           USER: user
           PASSWORD: password
+        DASH:
+          HOST: 172.90.203.253
+          PORT: 9998
+          USER: xbterminal
+          PASSWORD: password
 
       SALT_SERVERS:
         default:
