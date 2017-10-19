@@ -48,6 +48,11 @@ xbt:
           PORT: 18332
           USER: user
           PASSWORD: password
+        DASH:
+          HOST: 172.90.203.253
+          PORT: 9998
+          USER: xbterminal
+          PASSWORD: xyz
 
       SALT_SERVERS:
         default:
@@ -127,7 +132,7 @@ xbt:
        unit:
          - Description = xbterminal-check_wallet
        service:
-         - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py check_wallet BTC
+         - ExecStart=/var/www/xbterminal.com/venv/bin/python /var/www/xbterminal.com/xbterminal/manage.py check_wallet
          - Restart=no
          - LimitNOFILE=8192
          - User=xbt-app
