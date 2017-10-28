@@ -29,76 +29,47 @@ xbt:
     infrastructure-certs:
 
       xbt_payment_protocol_key: |
-        -----BEGIN PGP MESSAGE-----
-
-        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
-        65+X72IPuv9A4w==
-        =Fo6b
-        -----END PGP MESSAGE-----
 
       xbt_payment_protocol_crt: |
-        -----BEGIN CERTIFICATE-----
-        MIIFBTCCA+2gAwIBAgISAwbLxRZRy4xAFynoJ7pBLbYDMA0GCSqGSIb3DQEBCwUA
-        MEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD
-        ExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xNzA3MzAxNTI3MDBaFw0x
-        NzEwMjgxNTI3MDBaMBwxGjAYBgNVBAMTEXBvcy54YnRlcm1pbmFsLmlvMIIBIjAN
-        BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8j5VGGAwMKAhanQSxNkQ4iwtSP8t
-        2NgviQfJtl8UZ20GR3RumICFEZkzBdB2GojgoZ8bs7u3fWOcvF73cKkBm2Bt9+O2
-        k6fytdw6A4ihVI1mI3XGEMESvAZy0/DQE3/ey+mU16EfimfqI5PmcGFOk+UV9MTQ
-        ehcxYwH8pqprrcNO3aZ34KMykxf7oLiRrB3r7CDmUYXC6NY+wQEavkCq8wQUaDpu
-        88aNQyg3az4Nv8WVUn8lQJ6h2qbCAul/WjdfTD7p6Bfj4V6R2puGTpKtX4GzDUwB
-        OFEAa99qJ4GalK8ZquTTd08PDqEw9dNvyQVr3kcZWaviv4AQbsP7MBeyMQIDAQAB
-        o4ICETCCAg0wDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
-        BgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBSneZsU60ujxVeF/gRxZ1q8
-        +/CjhjAfBgNVHSMEGDAWgBSoSmpjBH3duubRObemRWXv86jsoTBvBggrBgEFBQcB
-        AQRjMGEwLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwLmludC14My5sZXRzZW5jcnlw
-        dC5vcmcwLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5sZXRzZW5jcnlw
-        dC5vcmcvMBwGA1UdEQQVMBOCEXBvcy54YnRlcm1pbmFsLmlvMIH+BgNVHSAEgfYw
-        gfMwCAYGZ4EMAQIBMIHmBgsrBgEEAYLfEwEBATCB1jAmBggrBgEFBQcCARYaaHR0
-        cDovL2Nwcy5sZXRzZW5jcnlwdC5vcmcwgasGCCsGAQUFBwICMIGeDIGbVGhpcyBD
-        ZXJ0aWZpY2F0ZSBtYXkgb25seSBiZSByZWxpZWQgdXBvbiBieSBSZWx5aW5nIFBh
-        cnRpZXMgYW5kIG9ubHkgaW4gYWNjb3JkYW5jZSB3aXRoIHRoZSBDZXJ0aWZpY2F0
-        ZSBQb2xpY3kgZm91bmQgYXQgaHR0cHM6Ly9sZXRzZW5jcnlwdC5vcmcvcmVwb3Np
-        dG9yeS8wDQYJKoZIhvcNAQELBQADggEBAGjpVz24p93cFKpHM372qs2XBOBpPq7Y
-        8bg+v8VbZRfdkYiRKnq8zPjQlH+bX+SUGDZy71/pAe5eO23O/CY1oV/Fac7VaNxr
-        qfGPwIVOQb/ErxJSFNqkQ3yuJ0T5ZjURcQgP6y6S9p6sG2hBiLQzKq0qKkW3Kvd0
-        F7qBDdk4e7/ue9VLoKpWJNV5jhCt5jwideVtEL/qcakOF3PxDBhOgmIiZ41L/F7a
-        XjPz7KziRCnWiqfC1bRqy4YWpIcAhhmuiRtHSRljVXJtQYtq0h0TjyNagUDBBHS6
-        ZSbq7j4jI+Pj1EMWa0OvRyD9gXBMECxCi7TFMLu+nPvPTVysbggO+lI=
-        -----END CERTIFICATE-----
+        -----BEGIN PGP MESSAGE-----
+
+        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
+        jtFlwbLDUQ==
+        =M/q4
+        -----END PGP MESSAGE-----
 
       ca: |
         -----BEGIN CERTIFICATE-----
