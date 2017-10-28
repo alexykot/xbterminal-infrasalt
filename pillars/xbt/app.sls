@@ -29,8 +29,6 @@ xbt:
     infrastructure-certs:
 
       xbt_payment_protocol_key: |
-
-      xbt_payment_protocol_crt: |
         -----BEGIN PGP MESSAGE-----
 
         hQEMA/XI2iCydQqJAQgA0v59kRiwpJTW0/RmWpzA1+fUgRQYMCciYErXJDARIxeB
@@ -71,6 +69,37 @@ xbt:
         =M/q4
         -----END PGP MESSAGE-----
 
+      xbt_payment_protocol_crt: |
+        -----BEGIN CERTIFICATE-----
+        MIIFBTCCA+2gAwIBAgISA4l0maAuHLNdc058jAXDGuYnMA0GCSqGSIb3DQEBCwUA
+        MEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD
+        ExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xNzEwMjgwOTAwNDRaFw0x
+        ODAxMjYwOTAwNDRaMBwxGjAYBgNVBAMTEXBvcy54YnRlcm1pbmFsLmlvMIIBIjAN
+        BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8j5VGGAwMKAhanQSxNkQ4iwtSP8t
+        2NgviQfJtl8UZ20GR3RumICFEZkzBdB2GojgoZ8bs7u3fWOcvF73cKkBm2Bt9+O2
+        k6fytdw6A4ihVI1mI3XGEMESvAZy0/DQE3/ey+mU16EfimfqI5PmcGFOk+UV9MTQ
+        ehcxYwH8pqprrcNO3aZ34KMykxf7oLiRrB3r7CDmUYXC6NY+wQEavkCq8wQUaDpu
+        88aNQyg3az4Nv8WVUn8lQJ6h2qbCAul/WjdfTD7p6Bfj4V6R2puGTpKtX4GzDUwB
+        OFEAa99qJ4GalK8ZquTTd08PDqEw9dNvyQVr3kcZWaviv4AQbsP7MBeyMQIDAQAB
+        o4ICETCCAg0wDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+        BgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBSneZsU60ujxVeF/gRxZ1q8
+        +/CjhjAfBgNVHSMEGDAWgBSoSmpjBH3duubRObemRWXv86jsoTBvBggrBgEFBQcB
+        AQRjMGEwLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwLmludC14My5sZXRzZW5jcnlw
+        dC5vcmcwLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5sZXRzZW5jcnlw
+        dC5vcmcvMBwGA1UdEQQVMBOCEXBvcy54YnRlcm1pbmFsLmlvMIH+BgNVHSAEgfYw
+        gfMwCAYGZ4EMAQIBMIHmBgsrBgEEAYLfEwEBATCB1jAmBggrBgEFBQcCARYaaHR0
+        cDovL2Nwcy5sZXRzZW5jcnlwdC5vcmcwgasGCCsGAQUFBwICMIGeDIGbVGhpcyBD
+        ZXJ0aWZpY2F0ZSBtYXkgb25seSBiZSByZWxpZWQgdXBvbiBieSBSZWx5aW5nIFBh
+        cnRpZXMgYW5kIG9ubHkgaW4gYWNjb3JkYW5jZSB3aXRoIHRoZSBDZXJ0aWZpY2F0
+        ZSBQb2xpY3kgZm91bmQgYXQgaHR0cHM6Ly9sZXRzZW5jcnlwdC5vcmcvcmVwb3Np
+        dG9yeS8wDQYJKoZIhvcNAQELBQADggEBAGVwiLkJcqV6LLToCCGB3cCJu339Agx9
+        VS3qtNTsU2gEYZn4bGeYDd4jmgDMHiJDS69yGYidBofc7yU9wBwxYW8mXYcYPMmY
+        +55RLJveWWW5b2C3x92VyskLd6vSBT29KBGmkhmclDgYx5FZsnP8nh0s35ZZ8brE
+        qPE1liToI3aRRYmSMIdRv2DsdfDBupw0/L//Z2Xcc5ZDv0066HeZAs0DDDVgyq4v
+        sMnvD+vRQhERLSwXYBF7VCe4E3Bxap5lBH0830NdB5dohmI6M8TVmz9DEr2xzzUD
+        rlwkiynzN5iIqzzzOBGYlEkBIDqMA+2P5QZgHg3GdnLVrEGfAux81TE=
+        -----END CERTIFICATE-----
+  
       ca: |
         -----BEGIN CERTIFICATE-----
         MIIDnzCCAoegAwIBAgIUFb3HbZXiaOXnpuAfFSAC89+XqB8wDQYJKoZIhvcNAQEL
@@ -270,7 +299,7 @@ xbt:
           USER: xbterminal
           PASSWORD: |
             -----BEGIN PGP MESSAGE-----
-            
+
             hQELA/XI2iCydQqJAQf1E5NE4UHraUl/keuatvlW25iNqsKDm2naCJCb/4ige4YD
             /ahuv8sXhXvuxCl8jEluxo1i0r8a5iCC5Bud47BcZ26VIZM6K+h8bXhD3+O/ut2b
             I24OVY46HaqUxldxGBqlFdm6E1h2sOFjNI+JsN37LwfqAUs3GD+jMbAAIOnDzc3R
